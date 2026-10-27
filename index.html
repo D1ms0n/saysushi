@@ -2,401 +2,446 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SaySushi — доставка суші</title>
-<meta name="description" content="SaySushi — свіжі роли, сети та боули з доставкою за 40 хвилин. Скажи «суші» — і ми вже їдемо.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍣</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SaySushi — роли та сети з доставкою в Зазим'ї</title>
+<meta name="description" content="SaySushi — японська кухня в Зазим'ї: роли, сети, поке, гарячі страви та бургери SayBurger. Доставка по Зазим'ю, Погребах, Пухівці, Рожнах, Троєщині. Щодня 11:00–22:00.">
+<meta name="theme-color" content="#1F2BD1">
+<meta property="og:title" content="SaySushi — роли та сети з доставкою">
+<meta property="og:description" content="Понад 100 позицій японської кухні. Самовивіз −10%. Щодня 11:00–22:00.">
+<meta property="og:image" content="img/menu/6573653152b64e36fb35ec2b.webp">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fbf7f4;
-  --bg-2:#ffffff;
-  --card:#ffffff;
-  --line:#efe6e0;
-  --text:#17120f;
-  --muted:#6f6560;
-  --accent:#ff4d4d;
-  --accent-2:#ff8a5c;
-  --wasabi:#7cc142;
-  --nori:#1d2a24;
-  --shadow:0 10px 40px -12px rgba(60,20,10,.18);
-  --grad:linear-gradient(120deg,var(--accent),var(--accent-2));
-  --radius:22px;
+  --bg:#FBF6F0;
+  --surface:#FFFFFF;
+  --surface-2:#F4ECE2;
+  --ink:#13141F;
+  --muted:#6C6A74;
+  --line:#ECE3D8;
+  --brand:#1F2BD1;
+  --brand-2:#3C47F0;
+  --brand-ink:#FFFFFF;
+  --accent:#FF6A1F;
+  --peach:#FCDCCB;
+  --ok:#11905A;
+  --shadow-sm:0 2px 10px -4px rgba(19,20,31,.12);
+  --shadow:0 18px 50px -24px rgba(19,20,31,.35);
+  --radius:20px;
+  --header-h:68px;
+  color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0f0c0b;--bg-2:#161211;--card:#1c1715;--line:#2e2623;
-    --text:#f7f1ee;--muted:#ab9f99;--shadow:0 10px 40px -12px rgba(0,0,0,.6);
+    --bg:#0C0D16;--surface:#151724;--surface-2:#1C1F30;--ink:#F3F1EC;--muted:#9D9BA9;--line:#262A3D;
+    --brand:#4F5BFF;--brand-2:#6D77FF;--peach:#3A2721;
+    --shadow-sm:0 2px 10px -4px rgba(0,0,0,.5);--shadow:0 18px 50px -24px rgba(0,0,0,.8);color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0f0c0b;--bg-2:#161211;--card:#1c1715;--line:#2e2623;
-  --text:#f7f1ee;--muted:#ab9f99;--shadow:0 10px 40px -12px rgba(0,0,0,.6);
+  --bg:#0C0D16;--surface:#151724;--surface-2:#1C1F30;--ink:#F3F1EC;--muted:#9D9BA9;--line:#262A3D;
+  --brand:#4F5BFF;--brand-2:#6D77FF;--peach:#3A2721;
+  --shadow-sm:0 2px 10px -4px rgba(0,0,0,.5);--shadow:0 18px 50px -24px rgba(0,0,0,.8);color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 64px);-webkit-text-size-adjust:100%}
 body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  font-size:16px;line-height:1.6;overflow-x:hidden;
-  transition:background .3s,color .3s;
+  margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.55 Onest,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;
 }
+body.locked{overflow:hidden}
 a{color:inherit;text-decoration:none}
-img{max-width:100%}
-button{font-family:inherit}
-.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
-@media (min-width:768px){.wrap{padding:0 28px}}
-h1,h2,h3,.display{font-family:Unbounded,Manrope,sans-serif;letter-spacing:-.02em;line-height:1.1;margin:0}
-.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 16px}
+@media (min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3,.display{font-family:Unbounded,Onest,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;font-weight:700}
 .muted{color:var(--muted)}
-
-/* ---------- scroll progress ---------- */
-.progress-bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:100}
-
-/* ---------- announcement ---------- */
-.announce{background:var(--text);color:var(--bg);font-size:14px;text-align:center;padding:8px 16px}
-.announce b{color:var(--accent-2)}
-.announce .timer{font-variant-numeric:tabular-nums;font-weight:800}
-
-/* ---------- header ---------- */
-header.nav{
-  position:sticky;top:0;z-index:50;
-  background:color-mix(in srgb,var(--bg) 78%,transparent);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid transparent;transition:border-color .3s;
-}
-header.nav.scrolled{border-bottom-color:var(--line)}
-.nav-inner{display:flex;align-items:center;gap:20px;height:70px}
-.logo{display:flex;align-items:center;gap:10px;font-family:Unbounded,sans-serif;font-weight:700;font-size:18px}
-.logo-mark{
-  width:38px;height:38px;border-radius:12px;background:var(--grad);
-  display:grid;place-items:center;font-size:20px;box-shadow:0 6px 20px -6px var(--accent);
-}
-.nav-links{display:none;gap:28px;margin-left:auto;font-weight:600;font-size:15px}
-.nav-links a{color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
-@media (min-width:960px){.nav-links{display:flex}.nav-actions{margin-left:0}}
-.icon-btn{
-  position:relative;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--card);
-  color:var(--text);display:grid;place-items:center;cursor:pointer;font-size:18px;
-}
-.cart-count{
-  position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;
-  background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;
-  transform:scale(0);transition:transform .25s;
-}
-.cart-count.on{transform:scale(1)}
-.cart-count.bump{animation:bump .4s}
-@keyframes bump{50%{transform:scale(1.4)}}
-.burger{display:grid}
-@media (min-width:960px){.burger{display:none}}
-.mobile-menu{display:none;flex-direction:column;gap:4px;padding:8px 16px 20px;border-bottom:1px solid var(--line)}
-.mobile-menu.open{display:flex}
-.mobile-menu a{padding:12px 4px;font-weight:600;border-bottom:1px solid var(--line)}
-@media (min-width:960px){.mobile-menu{display:none!important}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- buttons ---------- */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border:0;border-radius:999px;padding:14px 26px;font:700 15px Manrope,sans-serif;cursor:pointer;
-  transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;
+  padding:15px 26px;font-weight:600;font-size:16px;white-space:nowrap;
+  transition:transform .2s,background .2s,box-shadow .2s;
 }
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 30px -10px var(--accent)}
-.btn-primary:hover{box-shadow:0 18px 40px -10px var(--accent)}
-.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--line)}
-.btn-sm{padding:10px 18px;font-size:14px}
-.hide-sm{display:none}
-@media (min-width:600px){.hide-sm{display:inline-flex}}
+.btn:active{transform:scale(.97)}
+.btn-brand{background:var(--brand);color:var(--brand-ink);box-shadow:0 14px 30px -14px var(--brand)}
+.btn-brand:hover{background:var(--brand-2)}
+.btn-ghost{background:var(--surface);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-block{width:100%}
+.icon-btn{
+  position:relative;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:var(--surface);
+  display:grid;place-items:center;flex:none;transition:border-color .2s;
+}
+.icon-btn:hover{border-color:var(--ink)}
+.icon-btn svg{width:20px;height:20px}
+.badge-count{
+  position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;
+  transform:scale(0);transition:transform .25s;
+}
+.badge-count.on{transform:scale(1)}
+.badge-count.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.35)}}
+
+/* ---------- top bar & header ---------- */
+.topbar{background:var(--ink);color:var(--bg);font-size:13px}
+.topbar .wrap{display:flex;gap:18px;justify-content:center;align-items:center;min-height:36px;flex-wrap:wrap}
+.topbar b{font-weight:600}
+.topbar .dot{width:7px;height:7px;border-radius:50%;background:#2BD67B;display:inline-block;margin-right:6px;box-shadow:0 0 0 3px rgba(43,214,123,.25)}
+.topbar .dot.closed{background:#FF5A5A;box-shadow:0 0 0 3px rgba(255,90,90,.25)}
+.topbar .hide-m{display:none}
+@media (min-width:768px){.topbar .hide-m{display:inline}}
+header.nav{
+  position:sticky;top:0;z-index:50;height:var(--header-h);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+header.nav.scrolled{border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;gap:16px;height:100%}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo img{width:42px;height:42px;border-radius:12px;background:#fff;box-shadow:var(--shadow-sm)}
+.logo b{font-family:Unbounded,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;display:block;line-height:1}
+.logo small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:3px;letter-spacing:.02em}
+.nav-links{display:none;gap:4px;margin-left:auto}
+.nav-links a{padding:9px 14px;border-radius:999px;font-weight:500;color:var(--muted);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--ink);background:var(--surface)}
+.nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.phone-link{display:none;font-weight:600;padding:0 6px}
+@media (min-width:1000px){.nav-links{display:flex}.nav-actions{margin-left:12px}.phone-link{display:inline}}
+@media (max-width:420px){.logo small{display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;padding:56px 0 40px;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;pointer-events:none;z-index:0}
-.blob.b1{width:420px;height:420px;background:var(--accent);top:-120px;right:-80px;animation:float 12s ease-in-out infinite}
-.blob.b2{width:360px;height:360px;background:var(--wasabi);bottom:-140px;left:-120px;animation:float 14s ease-in-out infinite reverse}
-@keyframes float{50%{transform:translate(30px,40px) scale(1.08)}}
-.hero-grid{position:relative;z-index:1;display:grid;gap:48px;align-items:center}
-@media (min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr}}
-.pill{
-  display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;
-  background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:700;box-shadow:var(--shadow);
+.hero{position:relative;padding:28px 0 56px;overflow:hidden}
+@media (min-width:960px){.hero{padding:56px 0 88px}}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media (min-width:960px){.hero-grid{grid-template-columns:1fr 1.05fr;gap:56px}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:7px 14px 7px 8px;
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-sm);
 }
-.pill span{background:var(--grad);color:#fff;border-radius:999px;padding:2px 10px}
-.hero h1{font-size:clamp(38px,7vw,72px);font-weight:900;margin:22px 0 20px}
-.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:540px;margin:0 0 30px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
-.trust{display:flex;align-items:center;gap:14px;margin-top:34px;flex-wrap:wrap}
-.avatars{display:flex}
-.avatars i{
-  width:38px;height:38px;border-radius:50%;border:3px solid var(--bg);margin-left:-10px;
-  display:grid;place-items:center;font-style:normal;font-size:18px;
-}
-.avatars i:first-child{margin-left:0}
-.stars{color:#ffb31a;letter-spacing:2px}
-.trust small{display:block;color:var(--muted);font-size:13px}
+.eyebrow i{width:22px;height:22px;border-radius:50%;background:var(--peach);display:grid;place-items:center;font-style:normal;font-size:12px}
+.hero h1{font-size:clamp(36px,6.4vw,68px);margin:20px 0 18px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--brand);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:0;right:0;bottom:-.12em;width:100%;height:.28em;color:var(--accent)}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:520px;margin:0 0 28px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero-ctas .btn{flex:1 1 auto}
+@media (min-width:520px){.hero-ctas .btn{flex:0 0 auto}}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;max-width:560px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 12px}
+.fact b{display:block;font-family:Unbounded,sans-serif;font-size:clamp(17px,2.4vw,22px);font-weight:700;line-height:1.1}
+.fact span{display:block;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.35}
 
-/* hero plate */
-.plate-wrap{position:relative;max-width:460px;margin:0 auto;width:100%}
-.plate{
-  position:relative;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 50% 45%,#2c3a33 0 58%,var(--nori) 59% 100%);
-  box-shadow:var(--shadow),inset 0 0 0 10px rgba(255,255,255,.04);
-  display:grid;place-items:center;
+.collage{position:relative;aspect-ratio:1/0.92;max-width:600px;width:100%;margin:0 auto}
+.collage .ph{position:absolute;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface-2)}
+.collage .ph img{width:100%;height:100%;object-fit:cover}
+.collage .p1{left:0;top:4%;width:74%;height:72%;transform:rotate(-2deg)}
+.collage .p2{right:0;top:0;width:40%;height:40%;transform:rotate(4deg);border:6px solid var(--bg)}
+.collage .p3{right:3%;bottom:0;width:48%;height:46%;transform:rotate(-3deg);border:6px solid var(--bg)}
+.collage .tag{
+  position:absolute;display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:16px;
+  padding:8px 8px 8px 14px;box-shadow:var(--shadow);font-size:13px;font-weight:600;z-index:2;
 }
-.plate-inner{position:absolute;inset:0;animation:spin 40s linear infinite}
-.plate:hover .plate-inner{animation-play-state:paused}
-@keyframes spin{to{transform:rotate(360deg)}}
-.plate-inner span{
-  position:absolute;left:50%;top:50%;font-size:clamp(34px,7vw,52px);
-  transform:rotate(var(--a)) translateY(-36%) translateY(calc(-1 * var(--r))) rotate(calc(-1 * var(--a)));
-  margin:-.5em 0 0 -.5em;line-height:1;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));
-}
-.plate-center{
-  position:relative;z-index:1;text-align:center;color:#fff;
-}
-.plate-center .display{font-size:clamp(30px,6vw,46px);font-weight:900}
-.plate-center small{display:block;opacity:.7;font-size:13px}
-.chip{
-  position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;
-  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);font-size:13px;font-weight:700;
-  animation:float 6s ease-in-out infinite;z-index:2;
-}
-.chip .ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:16px}
-.chip.c1{top:6%;left:-4%}
-.chip.c2{bottom:8%;right:-4%;animation-delay:-3s}
-@media (max-width:600px){.chip.c1{left:0}.chip.c2{right:0}}
+.collage .tag small{display:block;color:var(--muted);font-weight:500;font-size:11.5px}
+.collage .tag button{width:34px;height:34px;border-radius:11px;border:0;background:var(--brand);color:#fff;font-size:20px;line-height:1}
+.collage .t1{left:4%;bottom:12%}
+.collage .t2{right:-2%;top:42%}
+@media (max-width:520px){.collage .t2{display:none}}
+.star{position:absolute;color:var(--accent);z-index:1;animation:twinkle 6s ease-in-out infinite}
+.star.s2{color:var(--brand);animation-delay:-3s}
+@keyframes twinkle{50%{transform:scale(.8) rotate(20deg)}}
 
-/* ---------- marquee ---------- */
-.ticker{padding:22px 0;border-block:1px solid var(--line);overflow:hidden;background:var(--bg-2)}
-.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.marquee-track{display:flex;gap:48px;width:max-content;animation:scroll 30s linear infinite}
-.marquee-track span{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px;color:var(--muted);white-space:nowrap}
-@keyframes scroll{to{transform:translateX(-50%)}}
+/* ---------- ribbon ---------- */
+.ribbon{background:var(--brand);color:#fff;overflow:hidden;padding:16px 0;transform:rotate(-1.2deg);margin:0 -10px;box-shadow:var(--shadow)}
+.ribbon-track{display:flex;gap:28px;width:max-content;animation:marq 40s linear infinite;align-items:center}
+.ribbon-track span{font-family:Unbounded,sans-serif;font-weight:700;font-size:clamp(16px,2vw,22px);white-space:nowrap;display:flex;align-items:center;gap:28px}
+.ribbon-track svg{width:18px;height:18px;color:var(--accent);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
-section{padding:80px 0}
-.sec-head{max-width:700px;margin:0 auto 48px;text-align:center}
-.eyebrow{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.sec-head h2{font-size:clamp(28px,4.5vw,46px);font-weight:700}
-.sec-head p{color:var(--muted);font-size:18px;margin:16px 0 0}
+section{padding:72px 0}
+@media (min-width:960px){section{padding:96px 0}}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:32px}
+.sec-head h2{font-size:clamp(28px,4.2vw,46px)}
+.sec-head p{margin:10px 0 0;color:var(--muted);max-width:560px}
+.kicker{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-@media (min-width:900px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow)}
-.stat .num{font-family:Unbounded,sans-serif;font-weight:900;font-size:clamp(28px,4vw,40px);line-height:1}
-.stat p{margin:10px 0 0;color:var(--muted);font-size:14px}
+/* ---------- dish cards ---------- */
+.card{
+  position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;
+}
+@media (hover:hover){.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}}
+.card-img{position:relative;aspect-ratio:4/3;background:var(--surface-2);overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+@media (hover:hover){.card:hover .card-img img{transform:scale(1.05)}}
+.labels{position:absolute;top:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap}
+.lbl{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.94);color:#13141F;letter-spacing:.01em}
+.lbl.new{background:var(--brand);color:#fff}
+.lbl.spicy,.lbl.middle-spicy{background:#E8352B;color:#fff}
+.lbl.recommended{background:var(--accent);color:#fff}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-body h3{font-family:Onest,sans-serif;font-size:16px;font-weight:600;letter-spacing:0;line-height:1.3}
+.card-body p{margin:0;font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.45}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:8px}
+.price{font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;white-space:nowrap}
+.price small{font-size:12px;font-weight:600;margin-left:2px}
+.weight{display:block;font-size:12px;color:var(--muted);font-family:Onest,sans-serif;font-weight:500}
+.add{
+  width:42px;height:42px;border-radius:14px;border:0;background:var(--brand);color:#fff;font-size:24px;line-height:1;
+  display:grid;place-items:center;flex:none;transition:background .2s,transform .2s;
+}
+.add:hover{background:var(--brand-2)}
+.add:active{transform:scale(.9)}
+.stepper{display:inline-flex;align-items:center;background:var(--surface-2);border-radius:14px;padding:3px;flex:none}
+.stepper button{width:36px;height:36px;border:0;border-radius:11px;background:var(--surface);font-size:20px;font-weight:600;line-height:1}
+.stepper b{min-width:28px;text-align:center;font-weight:700}
+@media (max-width:520px){
+  .card-body{padding:10px 12px 12px}
+  .card-body h3{font-size:14.5px}
+  .card-body p{display:none}
+  .price{font-size:15.5px}
+  .add{width:36px;height:36px;border-radius:12px;font-size:21px}
+  .stepper button{width:30px;height:30px;font-size:18px}
+  .stepper b{min-width:22px;font-size:14px}
+}
+
+/* hits slider */
+.slider{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(232px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 18px;margin:0 -16px;scrollbar-width:none}
+.slider::-webkit-scrollbar{display:none}
+.slider .card{scroll-snap-align:start}
+@media (min-width:768px){.slider{padding:4px 32px 18px;margin:0 -32px;grid-auto-columns:minmax(260px,1fr)}}
+@media (min-width:1240px){.slider{grid-auto-columns:calc((100% - 48px)/4);margin:0;padding:4px 0 18px}}
+.slider-nav{display:none;gap:8px}
+@media (min-width:768px){.slider-nav{display:flex}}
+
+/* ---------- promos ---------- */
+.promos{display:grid;gap:16px}
+@media (min-width:900px){.promos{grid-template-columns:1.25fr 1fr}}
+.promo{position:relative;overflow:hidden;border-radius:28px;padding:32px 28px;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end}
+.promo h3{font-size:clamp(24px,3vw,34px);max-width:420px}
+.promo p{margin:12px 0 0;max-width:380px;opacity:.85}
+.promo.blue{background:var(--brand);color:#fff}
+.promo.peach{background:var(--peach)}
+.promo.dark{background:#13141F;color:#fff}
+.promo img{position:absolute;right:-40px;top:-30px;width:300px;height:300px;object-fit:cover;border-radius:50%;opacity:.95;box-shadow:0 20px 60px -20px rgba(0,0,0,.5)}
+.promo.blue h3,.promo.blue p{position:relative;z-index:1;max-width:58%}
+@media (max-width:600px){.promo img{width:200px;height:200px;right:-50px;top:-50px}.promo.blue h3,.promo.blue p{max-width:100%}.promo.blue{padding-top:160px}}
+.promo .big{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(56px,8vw,96px);line-height:.9;color:var(--accent);margin-bottom:auto}
+.promo-side{display:grid;gap:16px}
+.promo-side .promo{min-height:200px}
+.promo .btn{margin-top:20px;align-self:flex-start}
 
 /* ---------- menu ---------- */
-.tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
-.tabs button{
-  border:0;background:transparent;color:var(--muted);font-weight:700;font-size:14px;
-  padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;
+.menu-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg button{border:0;background:transparent;padding:10px 18px;border-radius:999px;font-weight:600;color:var(--muted);transition:all .2s}
+.seg button.active{background:var(--ink);color:var(--bg)}
+.seg button span{opacity:.6;font-weight:500;margin-left:4px}
+.search{position:relative;flex:1 1 220px;max-width:360px}
+.search input{
+  width:100%;height:48px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  padding:0 18px 0 46px;font:inherit;outline:none;transition:border-color .2s;
 }
-.tabs button.active{background:var(--grad);color:#fff}
-.menu-tabs{display:flex;justify-content:center;margin-bottom:32px}
-.menu-tabs .tabs{justify-content:center}
-.menu{display:grid;gap:20px}
-@media (min-width:640px){.menu{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1000px){.menu{grid-template-columns:repeat(3,1fr)}}
-.dish{
-  display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s;
-  animation:pop .4s ease both;
+.search input:focus{border-color:var(--brand)}
+.search svg{position:absolute;left:16px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--muted)}
+.cats-bar{
+  position:sticky;top:var(--header-h);z-index:40;margin:24px 0 8px;padding:10px 0;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }
-.dish:hover{transform:translateY(-4px)}
-@keyframes pop{from{opacity:0;transform:translateY(16px)}}
-.dish-cover{position:relative;height:170px;display:grid;place-items:center;font-size:76px}
-.dish-cover .badge{
-  position:absolute;top:14px;left:14px;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;
-  background:rgba(255,255,255,.9);color:#17120f;
+.cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 16px;margin:0 -16px}
+@media (min-width:768px){.cats{padding:0 32px;margin:0 -32px}}
+.cats::-webkit-scrollbar{display:none}
+.cats a{
+  flex:none;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  font-size:14px;font-weight:600;color:var(--muted);transition:all .2s;white-space:nowrap;
 }
-.dish-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
-.dish-body h3{font-size:18px;font-weight:700}
-.dish-body p{margin:0;color:var(--muted);font-size:14px;flex:1}
-.dish-meta{font-size:13px;color:var(--muted);font-weight:600}
-.dish-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
-.dish-price{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px}
-.dish-price small{font-size:13px}
-.qty{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:4px}
-.qty button{
-  width:32px;height:32px;border-radius:50%;border:0;background:var(--bg);color:var(--text);
-  font-size:18px;font-weight:700;cursor:pointer;
-}
-.qty b{min-width:22px;text-align:center}
-
-/* ---------- builder ---------- */
-.builder{display:grid;gap:24px}
-@media (min-width:960px){.builder{grid-template-columns:1.2fr .8fr}}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-.panel h3{font-size:20px;margin-bottom:6px}
-.opt-group{margin-top:22px}
-.opt-group > b{display:block;font-size:14px;margin-bottom:10px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opts button{
-  border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:999px;
-  padding:9px 14px;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;
-}
-.opts button.active{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));color:var(--accent)}
-.roll-preview{display:grid;place-items:center;text-align:center;gap:16px}
-.roll-art{
-  width:180px;height:180px;border-radius:50%;background:var(--nori);display:grid;place-items:center;
-  box-shadow:inset 0 0 0 14px #f4efe6,var(--shadow);position:relative;transition:transform .4s;
-}
-.roll-art.spin{transform:rotate(360deg)}
-.roll-art .filling{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-size:34px;transition:background .3s}
-.roll-art .topping{position:absolute;top:-6px;right:-6px;font-size:34px}
-.roll-name{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px}
-.roll-price{font-family:Unbounded,sans-serif;font-weight:900;font-size:34px}
-
-/* ---------- steps ---------- */
-.steps{display:grid;gap:18px;counter-reset:s}
-@media (min-width:800px){.steps{grid-template-columns:repeat(4,1fr)}}
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative}
-.step::before{
-  counter-increment:s;content:"0" counter(s);font-family:Unbounded,sans-serif;font-weight:900;font-size:40px;
-  display:block;margin-bottom:14px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.step h3{font-size:18px}
-.step p{color:var(--muted);font-size:14px;margin:8px 0 0}
-.step .time{position:absolute;top:22px;right:20px;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.cats a.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.cat-block{padding-top:28px}
+.cat-block > h3{font-size:clamp(20px,2.4vw,26px);margin-bottom:16px;display:flex;align-items:baseline;gap:10px}
+.cat-block > h3 span{font-family:Onest,sans-serif;font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (min-width:720px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+@media (min-width:1100px){.grid{grid-template-columns:repeat(4,1fr);gap:20px}}
+.empty-search{text-align:center;padding:60px 0;color:var(--muted)}
 
 /* ---------- delivery ---------- */
-.zones{display:grid;gap:18px}
-@media (min-width:800px){.zones{grid-template-columns:repeat(3,1fr)}}
-.zone{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-.zone .dot{width:14px;height:14px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle}
-.zone h3{font-size:18px;display:inline}
-.zone ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;font-size:14px;color:var(--muted)}
-.zone li b{color:var(--text)}
+.delivery{display:grid;gap:24px}
+@media (min-width:960px){.delivery{grid-template-columns:1.1fr .9fr;gap:32px}}
+.zones{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.zone-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px;padding:14px 20px;border-top:1px solid var(--line);align-items:center;font-size:14.5px}
+.zone-row:first-child{border-top:0;background:var(--surface-2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.zone-row b{font-weight:600}
+.zone-row .free{color:var(--ok);font-weight:600}
+.map{border-radius:24px;overflow:hidden;min-height:360px;background:var(--surface-2);border:1px solid var(--line);position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map-open{position:absolute;left:12px;bottom:12px;z-index:1;padding:11px 16px;font-size:14px;box-shadow:var(--shadow)}
+.info-list{display:grid;gap:12px;margin-top:20px}
+.info{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.info .ic{width:42px;height:42px;border-radius:12px;background:var(--peach);display:grid;place-items:center;flex:none}
+.info .ic svg{width:20px;height:20px;color:var(--accent)}
+.info small{display:block;color:var(--muted);font-size:13px}
+.info b{font-weight:600}
 
-/* ---------- reviews ---------- */
-.reviews{display:grid;gap:18px}
-@media (min-width:900px){.reviews{grid-template-columns:repeat(3,1fr)}}
-.review{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-.review p{margin:12px 0 20px;font-size:15px}
-.who{display:flex;align-items:center;gap:12px}
-.who i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:22px}
-.who small{display:block;color:var(--muted);font-size:13px}
-
-/* ---------- faq ---------- */
-.faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 22px}
-.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq p{color:var(--muted);margin:12px 0 0}
-
-/* ---------- cta ---------- */
+/* ---------- contact cta ---------- */
 .cta{
-  position:relative;overflow:hidden;border-radius:32px;padding:40px 24px;background:var(--nori);color:#fff;
-  display:grid;gap:30px;align-items:center;
+  position:relative;overflow:hidden;border-radius:32px;background:var(--ink);color:var(--bg);
+  padding:40px 24px;display:grid;gap:28px;align-items:center;
 }
-@media (min-width:900px){.cta{grid-template-columns:1fr 1fr;padding:60px}}
-.cta h2{font-size:clamp(28px,4vw,44px)}
-.cta p{opacity:.75}
-.cta .eyebrow{color:var(--accent-2)}
-.form{position:relative;z-index:1;display:grid;gap:12px}
-.form input,.form select,.form textarea{
-  width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,.08);color:#fff;font:500 15px Manrope,sans-serif;
-}
-.form textarea{resize:vertical;min-height:70px}
-.form select option{color:#17120f}
-.form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.55)}
-.form small{opacity:.6;font-size:12px}
-.order-sum{display:flex;justify-content:space-between;font-weight:700;padding:4px 2px}
-
-/* ---------- cart drawer ---------- */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:80}
-.overlay.show{opacity:1;pointer-events:auto}
-.drawer{
-  position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg-2);z-index:90;
-  transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);
-  display:flex;flex-direction:column;border-left:1px solid var(--line);
-}
-.drawer.open{transform:none}
-.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 20px;border-bottom:1px solid var(--line)}
-.drawer-head h3{font-size:20px}
-.drawer-items{flex:1;overflow:auto;padding:12px 20px;display:grid;gap:12px;align-content:start}
-.ci{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.ci .em{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:28px;background:var(--bg)}
-.ci b{display:block;font-size:14px;line-height:1.3}
-.ci small{color:var(--muted)}
-.empty{text-align:center;color:var(--muted);padding:60px 0}
-.empty div{font-size:56px}
-.drawer-foot{padding:20px;border-top:1px solid var(--line);display:grid;gap:10px}
-.line{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
-.line.total{font-size:18px;color:var(--text);font-weight:800}
-.free-bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
-.free-bar i{display:block;height:100%;background:var(--grad);transition:width .4s}
+@media (min-width:900px){.cta{grid-template-columns:1.2fr 1fr;padding:64px}}
+.cta h2{font-size:clamp(28px,4vw,48px)}
+.cta p{opacity:.7;margin:14px 0 0;max-width:460px}
+.cta-actions{display:grid;gap:10px}
+.cta .btn-ghost{background:transparent;color:inherit;border-color:color-mix(in srgb,var(--bg) 25%,transparent)}
+.cta .star{opacity:.9}
+.cta .info{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);transition:background .2s}
+.cta .info:hover{background:rgba(255,255,255,.1)}
+.cta .info small{color:inherit;opacity:.6}
+.cta .info .ic{background:rgba(255,106,31,.16)}
 
 /* ---------- footer ---------- */
-footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:40px}
-.foot{display:grid;gap:30px}
-@media (min-width:800px){.foot{grid-template-columns:2fr 1fr 1fr 1fr}}
-.foot h4{margin:0 0 12px;font-size:14px}
-.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;color:var(--muted);font-size:14px}
-.copy{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:40px;color:var(--muted);font-size:13px}
+footer{padding:48px 0 calc(32px + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:72px}
+.foot{display:grid;gap:28px}
+@media (min-width:800px){.foot{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+.foot h4{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15px}
+.foot a:hover{color:var(--brand)}
+.copy{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:36px;color:var(--muted);font-size:13px}
 
-/* ---------- misc ---------- */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
-.to-top{
-  position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:0;z-index:60;
-  background:var(--grad);color:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow);
-  opacity:0;pointer-events:none;transition:opacity .3s;
+/* ---------- drawer & modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(8,9,16,.55);opacity:0;pointer-events:none;transition:opacity .3s;z-index:80}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:90;
+  transform:translateX(102%);transition:transform .4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;
 }
-.to-top.show{opacity:1;pointer-events:auto}
+.drawer.open{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:22px}
+.drawer-items{flex:1;overflow:auto;padding:8px 20px;overscroll-behavior:contain}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.ci img{width:64px;height:64px;border-radius:14px;object-fit:cover;background:var(--surface-2)}
+.ci b{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
+.ci small{color:var(--muted);font-size:13px}
+.cart-empty{text-align:center;color:var(--muted);padding:70px 10px}
+.cart-empty svg{width:56px;height:56px;color:var(--line);margin:0 auto 12px}
+.drawer-foot{padding:16px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:grid;gap:10px;background:var(--surface)}
+.drawer-foot select{
+  width:100%;height:48px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);
+  padding:0 14px;font:inherit;font-weight:500;
+}
+.row{display:flex;justify-content:space-between;font-size:14.5px;color:var(--muted)}
+.row.total{font-size:19px;color:var(--ink);font-weight:700}
+.row.total span:last-child{font-family:Unbounded,sans-serif}
+.note{font-size:13px;padding:10px 12px;border-radius:12px;background:var(--peach);color:var(--ink)}
+.note.ok{background:color-mix(in srgb,var(--ok) 14%,var(--surface));}
+
+dialog.dish{
+  border:0;padding:0;margin:auto;width:min(760px,100%);max-height:min(90vh,820px);border-radius:28px;
+  background:var(--bg);color:var(--ink);overflow:hidden;box-shadow:var(--shadow);
+}
+dialog.dish::backdrop{background:rgba(8,9,16,.6);backdrop-filter:blur(4px)}
+.dish-inner{display:grid;max-height:inherit;overflow:auto}
+@media (min-width:760px){.dish-inner{grid-template-columns:1.05fr 1fr}}
+.dish-photo{position:relative;aspect-ratio:4/3;background:var(--surface-2)}
+@media (min-width:760px){.dish-photo{aspect-ratio:auto;min-height:440px}}
+.dish-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dish-info{padding:24px;display:flex;flex-direction:column;gap:12px}
+.dish-info h3{font-size:clamp(22px,3vw,28px)}
+.dish-info .desc{margin:0;color:var(--muted)}
+.dish-info .extras{font-size:13.5px;padding:12px 14px;border-radius:14px;background:var(--surface)}
+.dish-info .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:12px}
+.dish-info .price{font-size:26px}
+.dish-close{position:absolute;top:12px;right:12px;z-index:2;background:rgba(255,255,255,.92);color:#13141F;border:0}
+.dish .labels{top:14px;left:14px}
+@media (max-width:759px){
+  dialog.dish{margin:auto 0 0;width:100%;max-width:100%;border-radius:28px 28px 0 0;max-height:92vh}
+  dialog.dish[open]{animation:sheet .35s cubic-bezier(.2,.8,.2,1)}
+  .dish-info{padding:20px 20px calc(20px + env(safe-area-inset-bottom))}
+}
+@keyframes sheet{from{transform:translateY(100%)}}
+
+/* mobile cart bar */
+.cartbar{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 12px 18px;
+  border-radius:20px;border:0;background:var(--brand);color:#fff;box-shadow:0 18px 40px -16px var(--brand);
+  font-weight:600;transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1);text-align:left;
+}
+.cartbar.show{transform:none}
+.cartbar .sum{font-family:Unbounded,sans-serif;font-weight:700;background:rgba(255,255,255,.16);padding:8px 12px;border-radius:12px}
+@media (min-width:1000px){.cartbar{display:none}}
+
 .toast{
-  position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);z-index:100;
-  background:var(--text);color:var(--bg);padding:14px 22px;border-radius:14px;font-weight:700;
-  box-shadow:var(--shadow);transition:transform .4s cubic-bezier(.2,.8,.2,1);max-width:calc(100% - 32px);text-align:center;
+  position:fixed;left:50%;top:calc(var(--header-h) + 12px);transform:translate(-50%,-30px);opacity:0;z-index:100;
+  background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14px;
+  box-shadow:var(--shadow);transition:all .35s cubic-bezier(.2,.8,.2,1);pointer-events:none;max-width:calc(100% - 32px);
 }
-.toast.show{transform:translate(-50%,0)}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.9 6.6 4.9 10.8 12 12-7.1 1.2-11.1 5.4-12 12-.9-6.6-4.9-10.8-12-12 7.1-1.2 11.1-5.4 12-12z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8zm4 0V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm9 2-4-4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" d="M3 10h18"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></symbol>
+</svg>
 
-<div class="announce">
-  🍣 Безкоштовна доставка від <b>800 ₴</b> + місо-суп у подарунок. Акція діє ще <span class="timer" id="timer">23:59:59</span>
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot" id="openDot"></span><b id="openText">Щодня 11:00–22:00</b></span>
+    <span class="hide-m">Зазим'є, вул. Лісова, 55м</span>
+    <a href="tel:+380970366699"><b>+380 97 036 66 99</b></a>
+  </div>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="logo"><span class="logo-mark">🍣</span>SaySushi</a>
-    <nav class="nav-links">
+    <a href="#top" class="logo" aria-label="SaySushi — на початок">
+      <img src="img/logo.png" alt="" width="42" height="42">
+      <span><b>SaySushi</b><small>Sushi &amp; Burger House</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Розділи">
+      <a href="#hits">Хіти</a>
       <a href="#menu">Меню</a>
-      <a href="#builder">Свій рол</a>
       <a href="#delivery">Доставка</a>
-      <a href="#reviews">Відгуки</a>
-      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакти</a>
     </nav>
     <div class="nav-actions">
-      <button class="icon-btn" id="themeBtn" aria-label="Змінити тему">🌓</button>
-      <button class="icon-btn" id="cartBtn" aria-label="Кошик">🛒<span class="cart-count" id="cartCount">0</span></button>
-      <a href="#menu" class="btn btn-primary btn-sm hide-sm">Замовити</a>
-      <button class="icon-btn burger" id="burger" aria-label="Меню">☰</button>
+      <a class="phone-link" href="tel:+380970366699">097 036 66 99</a>
+      <button class="icon-btn" id="themeBtn" aria-label="Змінити тему"><svg><use href="#i-moon"/></svg></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Кошик"><svg><use href="#i-bag"/></svg><span class="badge-count" id="cartCount">0</span></button>
     </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#menu">Меню</a>
-    <a href="#builder">Свій рол</a>
-    <a href="#delivery">Доставка</a>
-    <a href="#reviews">Відгуки</a>
-    <a href="#faq">FAQ</a>
-    <a href="#menu" class="btn btn-primary" style="margin-top:12px;border:0">Замовити</a>
   </div>
 </header>
 
@@ -404,203 +449,122 @@ footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:40px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="blob b1"></div><div class="blob b2"></div>
   <div class="wrap hero-grid">
     <div>
-      <div class="pill reveal"><span>NEW</span> Сет «Філадельфія Бум» уже в меню</div>
-      <h1 class="reveal d1">Скажи <span class="grad-text">«суші»</span><br>і ми вже їдемо</h1>
-      <p class="lead reveal d2">Свіжий лосось, теплий рис і роли, скручені за 10 хвилин до виїзду кур'єра. Доставляємо за 40 хвилин, або наступний рол за наш рахунок.</p>
-      <div class="hero-ctas reveal d3">
-        <a href="#menu" class="btn btn-primary">Відкрити меню →</a>
-        <a href="#builder" class="btn btn-ghost">🥢 Зібрати свій рол</a>
+      <span class="eyebrow reveal"><i>🍣</i>Доставка по Зазим'ю та околицях</span>
+      <h1 class="reveal">Свіжі роли та сети <span style="white-space:nowrap">з <em>доставкою<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14C50 4 150 2 198 12" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></em></span></h1>
+      <p class="lead reveal">Японська кухня в Зазим'ї: понад сто позицій, від класичної Філадельфії до авторських ролів, сетів, поке та гарячих страв. А ще смеш-бургери SayBurger.</p>
+      <div class="hero-ctas reveal">
+        <a href="#menu" class="btn btn-brand">Обрати страви <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+380970366699" class="btn btn-ghost"><svg width="18" height="18"><use href="#i-phone"/></svg>Подзвонити</a>
       </div>
-      <div class="trust reveal d3">
-        <div class="avatars">
-          <i style="background:#ffd6d0">👩‍💻</i><i style="background:#d8f0c4">🧑‍🎤</i><i style="background:#ffe8a8">👨‍👩‍👧</i><i style="background:#d9e4ff">🧑‍🚀</i>
-        </div>
-        <div>
-          <span class="stars">★★★★★</span> <b>4.9/5</b>
-          <small>на основі 3 812 відгуків у Google</small>
-        </div>
+      <div class="facts reveal">
+        <div class="fact"><b>−10%</b><span>на самовивіз, крім сетів</span></div>
+        <div class="fact"><b>0 ₴</b><span>доставка по Зазим'ю від 900 ₴</span></div>
+        <div class="fact"><b>11–22</b><span>щодня, без вихідних</span></div>
       </div>
     </div>
-
-    <div class="reveal d2 plate-wrap">
-      <div class="plate">
-        <div class="plate-inner" id="plate"></div>
-        <div class="plate-center">
-          <small>Сьогодні скрутили</small>
-          <div class="display" data-count="2847">0</div>
-          <small>ролів</small>
-        </div>
-      </div>
-      <div class="chip c1"><span class="ic" style="background:#d8f0c4">🛵</span>Кур'єр уже в дорозі · 12 хв</div>
-      <div class="chip c2"><span class="ic" style="background:#ffd6d0">🔥</span>Філадельфія: топ-1 тижня</div>
-    </div>
+    <div class="collage reveal" id="collage"></div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="marquee">
-    <div class="marquee-track" id="marquee">
-      <span>🍣 Філадельфія</span><span>🥑 Каліфорнія</span><span>🔥 Дракон</span><span>🍤 Темпура</span>
-      <span>🥗 Поке</span><span>🍜 Рамен</span><span>🍙 Онігірі</span><span>🍵 Матча</span>
-    </div>
-  </div>
-</div>
+<div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbon"></div></div>
 
-<!-- STATS -->
-<section style="padding-top:60px">
+<!-- HITS -->
+<section id="hits">
   <div class="wrap">
-    <div class="stats">
-      <div class="stat reveal"><div class="num grad-text" data-count="40" data-suffix=" хв">0 хв</div><p>середній час доставки по місту</p></div>
-      <div class="stat reveal d1"><div class="num grad-text" data-count="128">0</div><p>позицій у меню, від класики до авторських</p></div>
-      <div class="stat reveal d2"><div class="num grad-text" data-count="98.7" data-decimals="1" data-suffix="%">0%</div><p>замовлень приїжджають теплими (рис) і холодними (риба)</p></div>
-      <div class="stat reveal d3"><div class="num grad-text" data-count="2015" data-plain="1">0</div><p>рік, коли ми скрутили перший рол</p></div>
+    <div class="sec-head">
+      <div><span class="kicker">Новинки та хіти</span><h2>Що замовляють зараз</h2></div>
+      <div class="slider-nav">
+        <button class="icon-btn" data-slide="-1" aria-label="Назад"><svg><use href="#i-left"/></svg></button>
+        <button class="icon-btn" data-slide="1" aria-label="Вперед"><svg><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+    <div class="slider" id="hitsSlider"></div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section style="padding-top:0">
+  <div class="wrap promos">
+    <div class="promo blue reveal">
+      <img id="promoImg" alt="" loading="lazy">
+      <span class="kicker" style="color:#FFD0B5">Акція</span>
+      <h3>Замовлення від 1000 ₴: акційний рол за зниженою ціною</h3>
+      <p>Додайте акційний рол до кошика під час оформлення замовлення.</p>
+      <a href="#menu" class="btn btn-accent">До меню</a>
+    </div>
+    <div class="promo-side">
+      <div class="promo peach reveal">
+        <div class="big">−10%</div>
+        <h3>Самовивіз дешевше</h3>
+        <p>Забирайте замовлення з вул. Лісова, 55м: знижка 10% на роли, страви та бургери (крім сетів і соусів).</p>
+      </div>
+      <div class="promo dark reveal">
+        <span class="kicker">SayBurger</span>
+        <h3>Смеш-бургери з тієї ж кухні</h3>
+        <a href="#menu" class="btn btn-accent" data-goto="burger">Меню бургерів</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- MENU -->
-<section id="menu" style="background:var(--bg-2)">
+<section id="menu" style="padding-top:24px">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Меню</span>
-      <h2>Обирай, що до душі</h2>
-      <p>Додавай у кошик і оформлюй замовлення в один клік. Ціни вказані за порцію.</p>
-    </div>
-    <div class="menu-tabs reveal"><div class="tabs" id="menuTabs"></div></div>
-    <div class="menu" id="menuGrid"></div>
-  </div>
-</section>
-
-<!-- BUILDER -->
-<section id="builder">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Конструктор</span>
-      <h2>Збери свій ідеальний рол</h2>
-      <p>Обери основу, начинку й топінг. Шеф скрутить саме так, як ти хочеш.</p>
-    </div>
-    <div class="builder">
-      <div class="panel reveal">
-        <h3>Твій рецепт</h3>
-        <p class="muted" style="margin:0">Ціна рахується одразу.</p>
-        <div class="opt-group"><b>Основа</b><div class="opts" data-group="base"></div></div>
-        <div class="opt-group"><b>Начинка</b><div class="opts" data-group="fill"></div></div>
-        <div class="opt-group"><b>Топінг</b><div class="opts" data-group="top"></div></div>
-        <div class="opt-group"><b>Соус</b><div class="opts" data-group="sauce"></div></div>
-      </div>
-      <div class="panel roll-preview reveal d1">
-        <div class="roll-art" id="rollArt"><div class="filling" id="rollFill">🐟</div><span class="topping" id="rollTop">🧀</span></div>
-        <div>
-          <div class="roll-name" id="rollName">Рол</div>
-          <p class="muted" id="rollDesc" style="margin:6px 0 0;font-size:14px"></p>
-        </div>
-        <div class="roll-price" id="rollPrice">0 ₴</div>
-        <button class="btn btn-primary" id="rollAdd">Додати в кошик</button>
+    <div class="sec-head">
+      <div><span class="kicker">Меню</span><h2>Все меню</h2><p>Ціни вказані для доставки. На самовивіз діє знижка 10% (крім сетів і соусів).</p></div>
+      <div class="menu-tools">
+        <div class="seg" id="seg" role="tablist"></div>
+        <label class="search"><span class="sr-only">Пошук</span><svg><use href="#i-search"/></svg><input type="search" id="search" placeholder="Пошук: лосось, дракон, поке…" autocomplete="off"></label>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section style="background:var(--bg-2)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Як це працює</span>
-      <h2>Від кліку до палички</h2>
-      <p>Кожне замовлення готуємо з нуля, нічого не лежить у холодильнику «на потім».</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><h3>Замовлення</h3><p>Обираєш роли на сайті або дзвониш нам.</p><span class="time">1 хв</span></div>
-      <div class="step reveal d1"><h3>Скручуємо</h3><p>Шеф готує рис, ріже рибу й крутить рол у тебе на очах (майже).</p><span class="time">15 хв</span></div>
-      <div class="step reveal d2"><h3>Доставка</h3><p>Термосумка, імбир, васабі та палички вже всередині.</p><span class="time">25 хв</span></div>
-      <div class="step reveal d3"><h3>Смакуєш</h3><p>Кажеш «суші» і повторюєш з першого кроку.</p><span class="time">∞</span></div>
-    </div>
+    <div class="cats-bar"><nav class="cats" id="cats" aria-label="Категорії"></nav></div>
+    <div id="menuList"></div>
   </div>
 </section>
 
 <!-- DELIVERY -->
-<section id="delivery">
+<section id="delivery" style="background:var(--surface-2)">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Доставка</span>
-      <h2>Привеземо куди скажеш</h2>
-      <p>Працюємо щодня з 10:00 до 23:00. Самовивіз зі знижкою 10%.</p>
+    <div class="sec-head">
+      <div><span class="kicker">Доставка</span><h2>Куди привеземо</h2><p>Мінімальна сума та вартість доставки залежать від зони. Чим більше замовлення, тим дешевше, аж до безкоштовної.</p></div>
     </div>
-    <div class="zones">
-      <div class="zone reveal"><span class="dot" style="background:var(--wasabi)"></span><h3>Зелена зона</h3>
-        <ul><li>Час: <b>до 40 хв</b></li><li>Доставка: <b>безкоштовно від 500 ₴</b></li><li>Центр і прилеглі райони</li></ul></div>
-      <div class="zone reveal d1"><span class="dot" style="background:#ffb31a"></span><h3>Жовта зона</h3>
-        <ul><li>Час: <b>до 60 хв</b></li><li>Доставка: <b>безкоштовно від 800 ₴</b></li><li>Спальні райони міста</li></ul></div>
-      <div class="zone reveal d2"><span class="dot" style="background:var(--accent)"></span><h3>Червона зона</h3>
-        <ul><li>Час: <b>до 90 хв</b></li><li>Доставка: <b>80 ₴ або від 1 200 ₴</b></li><li>Передмістя</li></ul></div>
+    <div class="delivery">
+      <div class="zones reveal" id="zones"></div>
+      <div>
+        <div class="map reveal"><iframe title="SaySushi на карті" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=50.5596834,30.6861043&z=14&hl=uk&output=embed"></iframe>
+          <a class="btn btn-ghost map-open" href="https://www.google.com/maps/search/?api=1&query=50.5596834,30.6861043" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-pin"/></svg>Відкрити в Google Maps</a></div>
+        <div class="info-list">
+          <div class="info"><span class="ic"><svg><use href="#i-clock"/></svg></span><span><small>Графік</small><b>Щодня 11:00–22:00</b></span></div>
+          <div class="info"><span class="ic"><svg><use href="#i-card"/></svg></span><span><small>Оплата</small><b>Готівка, картка кур'єру або онлайн</b></span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews" style="background:var(--bg-2)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Відгуки</span>
-      <h2>Що кажуть наші гості</h2>
-    </div>
-    <div class="reviews">
-      <div class="review reveal"><span class="stars">★★★★★</span><p>«Замовили Філадельфію о 22:40, привезли о 23:15, ще й місо-суп поклали. Тепер п'ятниця без SaySushi не п'ятниця.»</p>
-        <div class="who"><i style="background:#ffd6d0">👩‍💻</i><div><b>Олена</b><small>Постійна гостя з 2019</small></div></div></div>
-      <div class="review reveal d1"><span class="stars">★★★★★</span><p>«Зібрав у конструкторі рол з вугрем і манго. Звучало дивно, на смак геніально. Шеф, дякую!»</p>
-        <div class="who"><i style="background:#d8f0c4">🧑‍🎤</i><div><b>Максим</b><small>Експериментатор</small></div></div></div>
-      <div class="review reveal d2"><span class="stars">★★★★★</span><p>«Беремо великий сет на весь офіс щоп'ятниці. Кур'єр уже знає, де в нас кавоварка.»</p>
-        <div class="who"><i style="background:#ffe8a8">👨‍👩‍👧</i><div><b>Ірина</b><small>Офіс-менеджерка</small></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2>Часті запитання</h2>
-    </div>
-    <div class="faq reveal">
-      <details open><summary>Наскільки свіжа риба?</summary><p>Лосось і тунець привозять щоранку охолодженими, ніколи не замороженими. Те, що не використали за день, у роли не потрапляє.</p></details>
-      <details><summary>Що буде, якщо доставка запізниться?</summary><p>Якщо в зеленій зоні ми не встигли за 40 хвилин, наступний рол на твій вибір за наш рахунок.</p></details>
-      <details><summary>Чи є вегетаріанські роли?</summary><p>Так, ціла категорія «Веган»: з авокадо, огірком, такуаном, тофу та манго.</p></details>
-      <details><summary>Як оплатити?</summary><p>Карткою онлайн, Apple Pay / Google Pay або готівкою кур'єру.</p></details>
-      <details><summary>Можна замовити на певний час?</summary><p>Так, вкажи бажаний час у коментарі до замовлення, і ми привеземо хвилина в хвилину.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- ORDER -->
-<section id="order" style="padding-top:20px">
+<!-- CONTACTS -->
+<section id="contacts">
   <div class="wrap">
     <div class="cta reveal">
-      <div class="blob b1"></div>
-      <div style="position:relative;z-index:1">
-        <span class="eyebrow">Оформлення</span>
-        <h2>Готовий сказати «суші»?</h2>
-        <p>Залиш контакти, і оператор підтвердить замовлення за 2 хвилини. Палички, імбир і васабі додамо автоматично.</p>
+      <svg class="star" style="right:24px;top:20px;width:46px;height:46px"><use href="#i-star"/></svg>
+      <svg class="star s2" style="right:90px;top:70px;width:22px;height:22px"><use href="#i-star"/></svg>
+      <div>
+        <span class="kicker">Контакти</span>
+        <h2>Скажи «суші», і ми вже готуємо</h2>
+        <p>Приймаємо замовлення онлайн і телефоном щодня з 11:00 до 22:00. Оплата готівкою, карткою або онлайн.</p>
+        <div class="info-list">
+          <a class="info" href="https://www.google.com/maps/search/?api=1&query=50.5596834,30.6861043" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span><span><small>Адреса</small><b>с. Зазим'є, вул. Лісова, 55м</b></span></a>
+          <a class="info" href="tel:+380970366699"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Телефон</small><b>+380 97 036 66 99</b></span></a>
+        </div>
       </div>
-      <form class="form" id="form">
-        <input type="text" name="name" placeholder="Ваше ім'я" required>
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <input type="text" name="address" placeholder="Адреса доставки" required>
-        <select name="pay">
-          <option>Оплата карткою онлайн</option>
-          <option>Apple Pay / Google Pay</option>
-          <option>Готівкою кур'єру</option>
-          <option>Самовивіз (−10%)</option>
-        </select>
-        <textarea name="note" placeholder="Коментар: час доставки, поверх, домофон…"></textarea>
-        <div class="order-sum"><span>У кошику:</span><span id="formSum">порожньо</span></div>
-        <button class="btn btn-primary" type="submit">Замовити →</button>
-        <small>Натискаючи кнопку, ви погоджуєтесь на неймовірне задоволення.</small>
-      </form>
+      <div class="cta-actions">
+        <a class="btn btn-brand btn-block" href="https://saysushi.choiceqr.com" target="_blank" rel="noopener">Замовити онлайн <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost btn-block" href="tel:+380970366699"><svg width="18" height="18"><use href="#i-phone"/></svg>Замовити телефоном</a>
+        <a class="btn btn-ghost btn-block" href="https://instagram.com/say_sushi_" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-insta"/></svg>@say_sushi_</a>
+        <a class="btn btn-ghost btn-block" href="https://g.page/r/CadSF4jnU8AvEBM/review" target="_blank" rel="noopener">★ Залишити відгук у Google</a>
+      </div>
     </div>
   </div>
 </section>
@@ -611,264 +575,307 @@ footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:40px}
   <div class="wrap">
     <div class="foot">
       <div>
-        <a href="#top" class="logo"><span class="logo-mark">🍣</span>SaySushi</a>
-        <p class="muted" style="max-width:320px">Доставка суші, ролів і боулів. Свіжо, швидко, з любов'ю з 2015 року.</p>
+        <a href="#top" class="logo"><img src="img/logo.png" alt="" width="42" height="42"><span><b>SaySushi</b><small>Sushi &amp; Burger House</small></span></a>
+        <p class="muted" style="max-width:340px;margin:14px 0 0">Роли, сети, поке, гарячі страви та бургери з доставкою по Зазим'ю, Погребах, Пухівці, Рожнах і Троєщині.</p>
       </div>
-      <div><h4>Меню</h4><ul><li><a href="#menu">Роли</a></li><li><a href="#menu">Сети</a></li><li><a href="#builder">Свій рол</a></li></ul></div>
-      <div><h4>Гостям</h4><ul><li><a href="#delivery">Доставка</a></li><li><a href="#reviews">Відгуки</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div><h4>Контакти</h4><ul><li><a href="#order">Оформити замовлення</a></li><li>Київ, Україна</li><li>Щодня 10:00–23:00</li></ul></div>
+      <div><h4>Меню</h4><ul id="footCats"></ul></div>
+      <div><h4>Гостям</h4><ul><li><a href="#delivery">Зони доставки</a></li><li><a href="#hits">Новинки</a></li><li><a href="https://g.page/r/CadSF4jnU8AvEBM/review" target="_blank" rel="noopener">Відгук у Google</a></li></ul></div>
+      <div><h4>Контакти</h4><ul><li><a href="tel:+380970366699">+380 97 036 66 99</a></li><li>вул. Лісова, 55м, Зазим'є</li><li>Щодня 11:00–22:00</li><li><a href="https://instagram.com/say_sushi_" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
-    <div class="copy"><span>© <span id="year"></span> SaySushi</span><span>Скручено з ❤️ і васабі</span></div>
+    <div class="copy"><span>© <span id="year"></span> SaySushi · Say Food House</span><span>Готівка · Картка · Онлайн-оплата</span></div>
   </div>
 </footer>
 
+<button class="cartbar" id="cartbar" aria-label="Відкрити кошик"><span id="cartbarText">Кошик</span><span class="sum" id="cartbarSum">0 ₴</span></button>
+
 <div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer" aria-label="Кошик">
-  <div class="drawer-head"><h3>Кошик</h3><button class="icon-btn" id="cartClose" aria-label="Закрити">✕</button></div>
+<aside class="drawer" id="drawer" aria-label="Кошик" aria-hidden="true">
+  <div class="drawer-head"><h3>Кошик</h3><button class="icon-btn" id="cartClose" aria-label="Закрити"><svg><use href="#i-close"/></svg></button></div>
   <div class="drawer-items" id="cartItems"></div>
-  <div class="drawer-foot">
-    <div class="line"><span id="freeMsg"></span></div>
-    <div class="free-bar"><i id="freeBar"></i></div>
-    <div class="line"><span>Доставка</span><span id="cartDelivery">0 ₴</span></div>
-    <div class="line total"><span>Разом</span><span id="cartTotal">0 ₴</span></div>
-    <a href="#order" class="btn btn-primary" id="checkout">Оформити замовлення →</a>
+  <div class="drawer-foot" id="cartFoot">
+    <label class="sr-only" for="zoneSel">Спосіб отримання</label>
+    <select id="zoneSel"></select>
+    <div class="note" id="zoneNote"></div>
+    <div class="row"><span>Страви</span><span id="sumItems">0 ₴</span></div>
+    <div class="row" id="rowDiscount" hidden><span>Самовивіз −10%</span><span id="sumDiscount">0 ₴</span></div>
+    <div class="row"><span>Доставка</span><span id="sumDelivery">0 ₴</span></div>
+    <div class="row total"><span>Разом</span><span id="sumTotal">0 ₴</span></div>
+    <a class="btn btn-brand btn-block" id="checkout" href="https://saysushi.choiceqr.com" target="_blank" rel="noopener">Оформити замовлення <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-ghost btn-block" href="tel:+380970366699"><svg width="18" height="18"><use href="#i-phone"/></svg>Замовити телефоном</a>
   </div>
 </aside>
 
-<button class="to-top" id="toTop" aria-label="Нагору">↑</button>
-<div class="toast" id="toast"></div>
+<dialog class="dish" id="dish" aria-labelledby="dishName">
+  <div class="dish-inner">
+    <div class="dish-photo"><img id="dishImg" alt=""><div class="labels" id="dishLabels"></div></div>
+    <div class="dish-info">
+      <h3 id="dishName"></h3>
+      <span class="weight" id="dishWeight"></span>
+      <p class="desc" id="dishDesc"></p>
+      <div class="extras" id="dishExtras"></div>
+      <div class="buy"><span class="price" id="dishPrice"></span><span id="dishCtl"></span></div>
+    </div>
+  </div>
+  <button class="icon-btn dish-close" id="dishClose" aria-label="Закрити"><svg><use href="#i-close"/></svg></button>
+</dialog>
 
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data/menu.js"></script>
 <script>
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const fmt = n => Math.round(n).toLocaleString("uk-UA");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} },
+};
 
-/* theme */
+/* ---------- data ---------- */
+const { sections, zones } = window.MENU;
+const ITEMS = new Map();
+sections.forEach(s => s.cats.forEach(c => c.items.forEach(i => ITEMS.set(i.id, { ...i, sec:s.id, cat:c.n }))));
+const byName = n => [...ITEMS.values()].find(i => i.n.startsWith(n));
+const LABELS = { new:"Новинка", recommended:"Рекомендуємо", spicy:"Гостре", "middle-spicy":"Пікантне" };
+const labelsHtml = it => it.l.length ? `<div class="labels">${it.l.map(l => `<span class="lbl ${l}">${LABELS[l] || l}</span>`).join("")}</div>` : "";
+
+/* ---------- theme ---------- */
 const root = document.documentElement;
-try { const t = localStorage.getItem("ss-theme"); if (t) root.dataset.theme = t; } catch(e){}
+const savedTheme = store.get("ss-theme", null); if (savedTheme) root.dataset.theme = savedTheme;
 $("#themeBtn").onclick = () => {
   const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-  try { localStorage.setItem("ss-theme", root.dataset.theme); } catch(e){}
+  root.dataset.theme = dark ? "light" : "dark"; store.set("ss-theme", root.dataset.theme);
 };
 
-/* mobile menu */
-$("#burger").onclick = () => $("#mobileMenu").classList.toggle("open");
-$$("#mobileMenu a").forEach(a => a.onclick = () => $("#mobileMenu").classList.remove("open"));
+/* ---------- open now ---------- */
+(function(){
+  const h = new Date().getHours(), open = h >= 11 && h < 22;
+  $("#openDot").classList.toggle("closed", !open);
+  $("#openText").textContent = open ? "Відчинено · до 22:00" : "Приймаємо з 11:00";
+})();
 
-/* scroll: progress, sticky shadow, to-top */
-const onScroll = () => {
-  const h = document.documentElement;
-  const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
-  $("#progressBar").style.width = (p * 100) + "%";
-  $("#nav").classList.toggle("scrolled", h.scrollTop > 10);
-  $("#toTop").classList.toggle("show", h.scrollTop > 700);
-};
-addEventListener("scroll", onScroll, { passive:true });
-$("#toTop").onclick = () => scrollTo({ top:0, behavior:"smooth" });
-
-/* countdown to midnight */
-function tick(){
-  const now = new Date(), end = new Date(now); end.setHours(24,0,0,0);
-  let s = Math.floor((end - now) / 1000);
-  const pad = n => String(n).padStart(2, "0");
-  $("#timer").textContent = `${pad(Math.floor(s/3600))}:${pad(Math.floor(s%3600/60))}:${pad(s%60)}`;
-}
-tick(); setInterval(tick, 1000);
-
-/* toast */
+/* ---------- toast ---------- */
 function toast(msg){
   const t = $("#toast"); t.textContent = msg; t.classList.add("show");
-  clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 3000);
+  clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2200);
 }
-
-/* marquee: duplicate content for seamless loop */
-const mq = $("#marquee"); mq.innerHTML += mq.innerHTML;
-
-/* hero plate: pieces arranged in a circle */
-const pieces = ["🍣","🍙","🍤","🍣","🥟","🍣","🍱","🍤"];
-$("#plate").innerHTML = pieces.map((p,i) =>
-  `<span style="--a:${i * 360 / pieces.length}deg;--r:min(13vw,140px)">${p}</span>`).join("");
-
-/* animated counters */
-function countUp(el){
-  const target = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0);
-  const pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
-  const show = v => el.dataset.plain ? String(Math.round(v)) : (dec ? v.toFixed(dec).replace(".", ",") : fmt(v));
-  const dur = 1800, t0 = performance.now();
-  const step = t => {
-    const k = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - k, 4);
-    el.textContent = pre + show(target * e) + suf;
-    if (k < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-/* reveal + triggers */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(en => {
-    if (!en.isIntersecting) return;
-    const el = en.target;
-    el.classList.add("in");
-    $$("[data-count]", el).forEach(countUp);
-    io.unobserve(el);
-  });
-}, { threshold:.15 });
-$$(".reveal").forEach(el => io.observe(el));
-
-/* ---------- menu data ---------- */
-const CATS = { rolls:"Роли", sets:"Сети", hot:"Гарячі", vegan:"Веган", bowls:"Поке", drinks:"Напої" };
-const MENU = [
-  { id:"phila",  cat:"rolls", e:"🍣", name:"Філадельфія класична", desc:"Лосось, вершковий сир, огірок.", meta:"8 шт · 260 г", price:329, badge:"Хіт", bg:"#ffd6d0" },
-  { id:"cali",   cat:"rolls", e:"🥑", name:"Каліфорнія з крабом", desc:"Сніговий краб, авокадо, огірок, ікра масаго.", meta:"8 шт · 240 г", price:279, bg:"#d8f0c4" },
-  { id:"dragon", cat:"rolls", e:"🐉", name:"Зелений дракон", desc:"Вугор, вершковий сир, авокадо зверху, соус унагі.", meta:"8 шт · 280 г", price:389, badge:"Шеф радить", bg:"#cdeccf" },
-  { id:"spicy",  cat:"rolls", e:"🌶️", name:"Спайсі тунець", desc:"Тунець, огірок, гострий соус, кунжут.", meta:"8 шт · 230 г", price:299, bg:"#ffe0c2" },
-  { id:"set1",   cat:"sets",  e:"🍱", name:"Сет «Філадельфія Бум»", desc:"4 види Філадельфії: класика, з вугрем, запечена, з тунцем.", meta:"32 шт · 1 080 г", price:1149, badge:"NEW", bg:"#ffd6d0" },
-  { id:"set2",   cat:"sets",  e:"🎉", name:"Сет «Для компанії»", desc:"Філадельфія, Каліфорнія, Дракон, 2 запечені роли, макі.", meta:"48 шт · 1 560 г", price:1499, bg:"#ffe8a8" },
-  { id:"set3",   cat:"sets",  e:"💑", name:"Сет «На двох»", desc:"Філадельфія, Каліфорнія, макі з огірком та лососем.", meta:"24 шт · 760 г", price:749, bg:"#ffd9e6" },
-  { id:"bake",   cat:"hot",   e:"🔥", name:"Запечений з лососем", desc:"Під сирною шапкою, соус спайсі, ікра тобіко.", meta:"8 шт · 290 г", price:319, bg:"#ffe0c2" },
-  { id:"tempura",cat:"hot",   e:"🍤", name:"Темпура з креветкою", desc:"Хрусткий рол у клярі, тигрова креветка, сир.", meta:"8 шт · 270 г", price:309, badge:"Хіт", bg:"#fff0c2" },
-  { id:"ramen",  cat:"hot",   e:"🍜", name:"Рамен з куркою", desc:"Насичений бульйон, локшина, яйце, норі, зелена цибуля.", meta:"450 мл", price:269, bg:"#ffe8a8" },
-  { id:"vcucu",  cat:"vegan", e:"🥒", name:"Футомакі веган", desc:"Авокадо, огірок, такуан, болгарський перець.", meta:"8 шт · 220 г", price:219, bg:"#d8f0c4" },
-  { id:"vmango", cat:"vegan", e:"🥭", name:"Манго-тофу", desc:"Тофу, манго, рисовий папір, соус чилі-манго.", meta:"8 шт · 230 г", price:239, bg:"#fff0c2" },
-  { id:"poke1",  cat:"bowls", e:"🥗", name:"Поке з лососем", desc:"Рис, лосось, едамаме, авокадо, водорості чука.", meta:"350 г", price:299, badge:"Легко", bg:"#d9ecff" },
-  { id:"poke2",  cat:"bowls", e:"🐟", name:"Поке з тунцем", desc:"Рис, тунець, манго, редис, понзу.", meta:"350 г", price:319, bg:"#d9e4ff" },
-  { id:"matcha", cat:"drinks",e:"🍵", name:"Матча-лате", desc:"Японська матча на кокосовому молоці.", meta:"350 мл", price:99, bg:"#d8f0c4" },
-  { id:"lemon",  cat:"drinks",e:"🍋", name:"Юдзу-лимонад", desc:"Домашній лимонад з юдзу та м'ятою.", meta:"500 мл", price:89, bg:"#fff0c2" },
-];
 
 /* ---------- cart ---------- */
-const FREE_FROM = 800, DELIVERY = 80;
-let cart = {};               // id -> qty
-const custom = {};           // id -> item, for builder rolls
-try { const c = JSON.parse(localStorage.getItem("ss-cart") || "{}"); cart = c.cart || {}; Object.assign(custom, c.custom || {}); } catch(e){}
-const itemById = id => MENU.find(m => m.id === id) || custom[id];
-const save = () => { try { localStorage.setItem("ss-cart", JSON.stringify({ cart, custom })); } catch(e){} };
+let cart = store.get("ss-cart2", {});
+for (const id in cart) if (!ITEMS.has(id)) delete cart[id];
+let zoneIdx = store.get("ss-zone", 0);
+const PICKUP = -1;
 
 function setQty(id, q){
-  if (q <= 0) { delete cart[id]; if (custom[id]) delete custom[id]; }
-  else cart[id] = q;
-  save(); renderCart(); renderMenuQty();
+  if (q <= 0) delete cart[id]; else cart[id] = q;
+  store.set("ss-cart2", cart); refreshQty(); renderCart();
 }
-const add = id => {
+function add(id){
+  const first = !cart[id];
   setQty(id, (cart[id] || 0) + 1);
   const c = $("#cartCount"); c.classList.remove("bump"); void c.offsetWidth; c.classList.add("bump");
-};
-
-function totals(){
-  const ids = Object.keys(cart).filter(itemById);
-  const sub = ids.reduce((s, id) => s + itemById(id).price * cart[id], 0);
-  const n = ids.reduce((s, id) => s + cart[id], 0);
-  const del = sub === 0 || sub >= FREE_FROM ? 0 : DELIVERY;
-  return { ids, sub, n, del, total: sub + del };
+  if (first) toast(`Додано: ${ITEMS.get(id).n}`);
 }
+function control(id, big){
+  const q = cart[id] || 0;
+  return q
+    ? `<span class="stepper"><button data-dec="${id}" aria-label="Менше">−</button><b>${q}</b><button data-inc="${id}" aria-label="Більше">+</button></span>`
+    : big ? `<button class="btn btn-brand" data-inc="${id}">Додати в кошик</button>`
+          : `<button class="add" data-inc="${id}" aria-label="Додати в кошик">+</button>`;
+}
+function refreshQty(){
+  $$("[data-ctl]").forEach(el => el.innerHTML = control(el.dataset.ctl, el.dataset.big));
+}
+document.addEventListener("click", e => {
+  const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  if (inc){ e.stopPropagation(); add(inc.dataset.inc); return; }
+  if (dec){ e.stopPropagation(); setQty(dec.dataset.dec, (cart[dec.dataset.dec] || 0) - 1); return; }
+  const card = e.target.closest("[data-open]");
+  if (card) openDish(card.dataset.open);
+});
+
+function quote(){
+  const ids = Object.keys(cart);
+  const n = ids.reduce((s, id) => s + cart[id], 0);
+  const sub = ids.reduce((s, id) => s + ITEMS.get(id).p * cart[id], 0);
+  let discount = 0, delivery = 0, note = "", ok = true;
+  if (zoneIdx === PICKUP){
+    discount = Math.round(ids.reduce((s, id) => s + ITEMS.get(id).p * cart[id] * (ITEMS.get(id).t || 0) / 100, 0));
+    note = "Самовивіз: вул. Лісова, 55м. Знижка 10% на все, крім сетів і соусів.";
+  } else {
+    const z = zones[zoneIdx], tiers = [...z.tiers].sort((a,b) => a[0] - b[0]);
+    const min = tiers[0][0], hit = tiers.filter(t => sub >= t[0]).pop();
+    if (!hit){ ok = false; note = `Мінімальне замовлення в зону «${z.n}»: ${fmt(min)} ₴. Ще ${fmt(min - sub)} ₴.`; delivery = tiers[0][1]; }
+    else {
+      delivery = hit[1];
+      const next = tiers.find(t => t[0] > sub && t[1] < delivery);
+      note = delivery === 0 ? `Безкоштовна доставка в зону «${z.n}».`
+           : next ? `Доставка ${fmt(delivery)} ₴. Ще ${fmt(next[0] - sub)} ₴ до безкоштовної.` : `Доставка ${fmt(delivery)} ₴.`;
+    }
+  }
+  return { ids, n, sub, discount, delivery, total: sub - discount + delivery, note, ok, free: zoneIdx !== PICKUP && ok && delivery === 0 };
+}
+
+$("#zoneSel").innerHTML = `<option value="${PICKUP}">Самовивіз (−10%)</option>` +
+  zones.map((z,i) => `<option value="${i}">Доставка: ${esc(z.n)}</option>`).join("");
+if (zoneIdx !== PICKUP && !zones[zoneIdx]) zoneIdx = 0;
+$("#zoneSel").value = zoneIdx;
+$("#zoneSel").onchange = e => { zoneIdx = +e.target.value; store.set("ss-zone", zoneIdx); renderCart(); };
 
 function renderCart(){
-  const { ids, sub, n, del, total } = totals();
-  const cc = $("#cartCount"); cc.textContent = n; cc.classList.toggle("on", n > 0);
-  $("#cartItems").innerHTML = ids.length ? ids.map(id => {
-    const it = itemById(id);
-    return `<div class="ci"><span class="em">${it.e}</span>
-      <div><b>${it.name}</b><small>${fmt(it.price)} ₴ × ${cart[id]}</small></div>
-      <div class="qty"><button data-dec="${id}" aria-label="Менше">−</button><b>${cart[id]}</b><button data-inc="${id}" aria-label="Більше">+</button></div></div>`;
-  }).join("") : `<div class="empty"><div>🥢</div><p>Кошик порожній.<br>Скажи «суші» і обери щось смачне!</p></div>`;
-  $("#cartDelivery").textContent = del ? fmt(del) + " ₴" : "безкоштовно";
-  $("#cartTotal").textContent = fmt(total) + " ₴";
-  $("#freeMsg").textContent = sub >= FREE_FROM ? "🎉 Безкоштовна доставка + місо-суп!" : `Ще ${fmt(FREE_FROM - sub)} ₴ до безкоштовної доставки`;
-  $("#freeBar").style.width = Math.min(sub / FREE_FROM * 100, 100) + "%";
-  $("#checkout").style.display = ids.length ? "" : "none";
-  $("#formSum").textContent = n ? `${n} поз. · ${fmt(total)} ₴` : "порожньо";
+  const q = quote();
+  const cc = $("#cartCount"); cc.textContent = q.n; cc.classList.toggle("on", q.n > 0);
+  $("#cartItems").innerHTML = q.ids.length ? q.ids.map(id => {
+    const it = ITEMS.get(id);
+    return `<div class="ci">${it.img ? `<img src="${it.img}" alt="" loading="lazy">` : `<span></span>`}
+      <div><b>${esc(it.n)}</b><small>${fmt(it.p)} ₴${it.w ? " · " + esc(it.w) : ""}</small></div>${control(id)}</div>`;
+  }).join("") : `<div class="cart-empty"><svg><use href="#i-bag"/></svg><p>Кошик порожній.<br>Оберіть щось смачне в меню.</p></div>`;
+  $("#cartFoot").hidden = !q.ids.length;
+  $("#zoneNote").textContent = q.note;
+  $("#zoneNote").classList.toggle("ok", q.ok && (zoneIdx === PICKUP || q.free));
+  $("#sumItems").textContent = fmt(q.sub) + " ₴";
+  $("#rowDiscount").hidden = !q.discount; $("#sumDiscount").textContent = "−" + fmt(q.discount) + " ₴";
+  $("#sumDelivery").textContent = zoneIdx === PICKUP ? "—" : q.delivery ? fmt(q.delivery) + " ₴" : "безкоштовно";
+  $("#sumTotal").textContent = fmt(q.total) + " ₴";
+  $("#cartbar").classList.toggle("show", q.n > 0 && !$("#drawer").classList.contains("open"));
+  $("#cartbarText").textContent = `Кошик · ${q.n} ${q.n % 10 === 1 && q.n % 100 !== 11 ? "позиція" : (q.n % 10 >= 2 && q.n % 10 <= 4 && (q.n % 100 < 10 || q.n % 100 >= 20)) ? "позиції" : "позицій"}`;
+  $("#cartbarSum").textContent = fmt(q.total) + " ₴";
 }
-$("#cartItems").onclick = e => {
-  const inc = e.target.dataset.inc, dec = e.target.dataset.dec;
-  if (inc) add(inc);
-  if (dec) setQty(dec, cart[dec] - 1);
-};
-
-const openCart = open => {
-  $("#drawer").classList.toggle("open", open); $("#overlay").classList.toggle("show", open);
-};
-$("#cartBtn").onclick = () => openCart(true);
-$("#cartClose").onclick = $("#overlay").onclick = $("#checkout").onclick = () => openCart(false);
-addEventListener("keydown", e => { if (e.key === "Escape") openCart(false); });
-
-/* ---------- menu rendering ---------- */
-let curCat = "rolls";
-$("#menuTabs").innerHTML = Object.entries(CATS).map(([k,v]) =>
-  `<button data-cat="${k}" class="${k === curCat ? "active" : ""}">${v}</button>`).join("");
-$("#menuTabs").onclick = e => {
-  const k = e.target.dataset.cat; if (!k) return;
-  curCat = k; $$("#menuTabs button").forEach(b => b.classList.toggle("active", b.dataset.cat === k));
-  renderMenu();
-};
-
-function dishControl(id){
-  const q = cart[id] || 0;
-  return q ? `<div class="qty"><button data-dec="${id}" aria-label="Менше">−</button><b>${q}</b><button data-inc="${id}" aria-label="Більше">+</button></div>`
-           : `<button class="btn btn-primary btn-sm" data-inc="${id}">У кошик</button>`;
+function openCart(open){
+  $("#drawer").classList.toggle("open", open); $("#drawer").setAttribute("aria-hidden", !open);
+  $("#overlay").classList.toggle("show", open); document.body.classList.toggle("locked", open);
+  renderCart();
 }
-function renderMenu(){
-  $("#menuGrid").innerHTML = MENU.filter(m => m.cat === curCat).map((m,i) => `
-    <article class="dish" style="animation-delay:${i * .06}s">
-      <div class="dish-cover" style="background:${m.bg}">${m.badge ? `<span class="badge">${m.badge}</span>` : ""}${m.e}</div>
-      <div class="dish-body">
-        <h3>${m.name}</h3><p>${m.desc}</p><span class="dish-meta">${m.meta}</span>
-        <div class="dish-foot"><span class="dish-price">${fmt(m.price)} <small>₴</small></span><span data-ctl="${m.id}">${dishControl(m.id)}</span></div>
-      </div>
-    </article>`).join("");
-}
-function renderMenuQty(){ $$("[data-ctl]").forEach(el => el.innerHTML = dishControl(el.dataset.ctl)); }
-$("#menuGrid").onclick = e => {
-  const inc = e.target.dataset.inc, dec = e.target.dataset.dec;
-  if (inc) { add(inc); if (cart[inc] === 1) toast(`${itemById(inc).e} ${itemById(inc).name} у кошику`); }
-  if (dec) setQty(dec, cart[dec] - 1);
-};
+$("#cartBtn").onclick = $("#cartbar").onclick = () => openCart(true);
+$("#cartClose").onclick = $("#overlay").onclick = () => openCart(false);
+$("#checkout").addEventListener("click", () => toast("Відкриваємо сторінку оформлення замовлення…"));
+addEventListener("keydown", e => { if (e.key === "Escape" && $("#drawer").classList.contains("open")) openCart(false); });
 
-/* ---------- roll builder ---------- */
-const OPTS = {
-  base:  [{ k:"rice", n:"Класичний рис", p:120 }, { k:"black", n:"Чорний рис", p:150 }, { k:"paper", n:"Рисовий папір", p:110 }],
-  fill:  [{ k:"salmon", n:"Лосось", e:"🐟", c:"#ff8a6b", p:170 }, { k:"eel", n:"Вугор", e:"🦪", c:"#8a5a3c", p:190 },
-          { k:"shrimp", n:"Креветка", e:"🍤", c:"#ffb38a", p:160 }, { k:"tofu", n:"Тофу", e:"🧈", c:"#f3e6b8", p:90 }, { k:"crab", n:"Краб", e:"🦀", c:"#ff6b5a", p:140 }],
-  top:   [{ k:"cheese", n:"Сир", e:"🧀", p:40 }, { k:"avo", n:"Авокадо", e:"🥑", p:50 }, { k:"mango", n:"Манго", e:"🥭", p:45 }, { k:"sesame", n:"Кунжут", e:"⚪", p:15 }],
-  sauce: [{ k:"unagi", n:"Унагі", p:20 }, { k:"spicy", n:"Спайсі", p:20 }, { k:"ponzu", n:"Понзу", p:20 }, { k:"none", n:"Без соусу", p:0 }],
-};
-const pick = { base:"rice", fill:"salmon", top:"cheese", sauce:"unagi" };
-$$(".opts").forEach(box => {
-  const g = box.dataset.group;
-  box.innerHTML = OPTS[g].map(o => `<button data-k="${o.k}">${o.e ? o.e + " " : ""}${o.n}${o.p ? ` +${o.p}` : ""}</button>`).join("");
-  box.onclick = e => { const k = e.target.closest("button")?.dataset.k; if (!k) return; pick[g] = k; renderRoll(true); };
+/* ---------- dish dialog ---------- */
+const dlg = $("#dish");
+function openDish(id){
+  const it = ITEMS.get(id); if (!it) return;
+  $("#dishImg").src = it.img || ""; $("#dishImg").alt = it.n;
+  $("#dishLabels").innerHTML = it.l.map(l => `<span class="lbl ${l}">${LABELS[l] || l}</span>`).join("");
+  $("#dishName").textContent = it.n;
+  $("#dishWeight").textContent = [it.cat, it.w].filter(Boolean).join(" · ");
+  $("#dishDesc").textContent = it.d || "";
+  $("#dishDesc").hidden = !it.d;
+  $("#dishExtras").innerHTML = it.x ? `<b>До страви:</b> ${esc(it.x)}` : "";
+  $("#dishExtras").hidden = !it.x;
+  $("#dishPrice").innerHTML = `${fmt(it.p)}<small>₴</small>`;
+  $("#dishCtl").dataset.ctl = id; $("#dishCtl").dataset.big = "1"; $("#dishCtl").innerHTML = control(id, true);
+  dlg.showModal(); document.body.classList.add("locked");
+}
+dlg.addEventListener("close", () => { document.body.classList.remove("locked"); delete $("#dishCtl").dataset.ctl; });
+$("#dishClose").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* ---------- cards ---------- */
+function card(it){
+  return `<article class="card" data-open="${it.id}" tabindex="0" aria-label="${esc(it.n)}">
+    <div class="card-img">${it.img ? `<img src="${it.img}" alt="${esc(it.n)}" loading="lazy" decoding="async" width="720" height="540">` : ""}${labelsHtml(it)}</div>
+    <div class="card-body">
+      <h3>${esc(it.n)}</h3>
+      ${it.d ? `<p>${esc(it.d)}</p>` : ""}
+      <div class="card-foot"><span class="price">${fmt(it.p)}<small>₴</small>${it.w ? `<span class="weight">${esc(it.w)}</span>` : ""}</span><span data-ctl="${it.id}">${control(it.id)}</span></div>
+    </div>
+  </article>`;
+}
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.matches && e.target.matches("[data-open]")) openDish(e.target.dataset.open);
 });
-const opt = g => OPTS[g].find(o => o.k === pick[g]);
-function rollPrice(){ return Object.keys(pick).reduce((s, g) => s + opt(g).p, 0); }
-function renderRoll(anim){
-  $$(".opts").forEach(box => $$("button", box).forEach(b => b.classList.toggle("active", b.dataset.k === pick[box.dataset.group])));
-  const f = opt("fill"), t = opt("top"), b = opt("base"), s = opt("sauce");
-  $("#rollFill").textContent = f.e; $("#rollFill").style.background = f.c;
-  $("#rollTop").textContent = t.e;
-  $("#rollArt").style.background = pick.base === "black" ? "#2a2230" : pick.base === "paper" ? "#e9e1d2" : "var(--nori)";
-  $("#rollName").textContent = `Рол «${f.n} + ${t.n}»`;
-  $("#rollDesc").textContent = `${b.n}, ${f.n.toLowerCase()}, ${t.n.toLowerCase()}${pick.sauce !== "none" ? ", соус " + s.n.toLowerCase() : ""} · 8 шт`;
-  $("#rollPrice").textContent = fmt(rollPrice()) + " ₴";
-  if (anim) { const a = $("#rollArt"); a.classList.toggle("spin"); }
-}
-$("#rollAdd").onclick = () => {
-  const id = "c-" + Object.values(pick).join("-");
-  custom[id] = { id, e:"🥢", name: $("#rollName").textContent, price: rollPrice() };
-  add(id); toast("🥢 Твій рол додано в кошик");
-};
-renderRoll();
 
-/* ---------- order form: no backend, just a thank-you toast ---------- */
-$("#form").onsubmit = e => {
-  e.preventDefault();
-  if (!totals().n) { toast("🥢 Спочатку додай щось у кошик"); location.hash = "menu"; return; }
-  const name = e.target.elements.name.value.trim();
-  e.target.reset(); cart = {}; for (const k in custom) delete custom[k]; save(); renderCart(); renderMenuQty();
-  toast(`🎉 Дякуємо, ${name}! Оператор зателефонує за 2 хвилини.`);
-};
+/* ---------- hero collage ---------- */
+(function(){
+  const big = byName("Сет XL"), a = byName("Червоний дракон"), b = byName("Поке Боул з Лососем");
+  $("#collage").innerHTML = `
+    <svg class="star" style="left:-10px;top:-14px;width:44px;height:44px"><use href="#i-star"/></svg>
+    <svg class="star s2" style="right:44%;bottom:-6px;width:28px;height:28px"><use href="#i-star"/></svg>
+    <div class="ph p1"><img src="${big.img}" alt="${esc(big.n)}" fetchpriority="high"></div>
+    <div class="ph p2"><img src="${a.img}" alt="${esc(a.n)}"></div>
+    <div class="ph p3"><img src="${b.img}" alt="${esc(b.n)}"></div>
+    <div class="tag t1"><span>${esc(big.n)}<small>${esc(big.w)} · ${fmt(big.p)} ₴</small></span><button data-inc="${big.id}" aria-label="Додати ${esc(big.n)}">+</button></div>
+    <div class="tag t2"><span>${esc(a.n)}<small>${fmt(a.p)} ₴</small></span><button data-inc="${a.id}" aria-label="Додати ${esc(a.n)}">+</button></div>`;
+  const promo = byName("Червоний дракон"); $("#promoImg").src = byName("Філадельфія мікс лосось").img || promo.img;
+})();
+
+/* ---------- ribbon ---------- */
+const ribbonCats = sections[0].cats.filter(c => !/Соуси/.test(c.n)).map(c => c.n.trim()).concat("Смеш-бургери");
+$("#ribbon").innerHTML = [0,1].map(() => `<span>${ribbonCats.map(n => `${esc(n)}<svg><use href="#i-star"/></svg>`).join("")}</span>`).join("");
+
+/* ---------- hits ---------- */
+(function(){
+  const picks = [...ITEMS.values()].filter(i => i.l.includes("new") || i.l.includes("recommended"));
+  ["Сет Філадельфія","Червоний дракон","Сет XL","Say Smash"].forEach(n => { const i = byName(n); if (i && !picks.includes(i)) picks.push(i); });
+  $("#hitsSlider").innerHTML = picks.slice(0, 14).map(card).join("");
+  $$("[data-slide]").forEach(b => b.onclick = () => {
+    const s = $("#hitsSlider"); s.scrollBy({ left: +b.dataset.slide * s.clientWidth * .8, behavior:"smooth" });
+  });
+})();
+
+/* ---------- menu ---------- */
+let secId = "sushi", query = "";
+function renderSeg(){
+  $("#seg").innerHTML = sections.map(s => {
+    const n = s.cats.reduce((a,c) => a + c.items.length, 0);
+    return `<button role="tab" aria-selected="${s.id === secId}" class="${s.id === secId ? "active" : ""}" data-sec="${s.id}">${s.id === "sushi" ? "🍣" : "🍔"} ${esc(s.n)}<span>${n}</span></button>`;
+  }).join("");
+}
+$("#seg").onclick = e => { const b = e.target.closest("[data-sec]"); if (b) setSection(b.dataset.sec); };
+function setSection(id, scroll){
+  secId = id; renderSeg(); renderMenu();
+  if (scroll) $("#menu").scrollIntoView({ behavior:"smooth" });
+}
+$$("[data-goto]").forEach(a => a.addEventListener("click", () => setSection(a.dataset.goto)));
+
+const norm = s => s.toLowerCase().replace(/[ʼ'’]/g, "");
+function renderMenu(){
+  const sec = sections.find(s => s.id === secId), q = norm(query.trim());
+  const cats = sec.cats.map((c, k) => ({ ...c, k, items: q ? c.items.filter(i => norm(i.n + " " + i.d).includes(q)) : c.items })).filter(c => c.items.length);
+  $("#cats").innerHTML = cats.map(c => `<a href="#cat-${secId}-${c.k}" data-cat="cat-${secId}-${c.k}">${esc(c.n)}</a>`).join("");
+  $("#menuList").innerHTML = cats.length ? cats.map(c => `
+    <div class="cat-block" id="cat-${secId}-${c.k}">
+      <h3>${esc(c.n)} <span>${c.items.length}</span></h3>
+      <div class="grid">${c.items.map(i => card(ITEMS.get(i.id))).join("")}</div>
+    </div>`).join("") : `<div class="empty-search">Нічого не знайдено за запитом «${esc(query)}».</div>`;
+  spy();
+}
+let spyIO;
+function spy(){
+  spyIO && spyIO.disconnect();
+  const links = $$("#cats a");
+  if (links[0]) links[0].classList.add("active");
+  spyIO = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      links.forEach(a => a.classList.toggle("active", a.dataset.cat === en.target.id));
+      const act = links.find(a => a.dataset.cat === en.target.id);
+      if (act){ const bar = $("#cats"); bar.scrollTo({ left: act.offsetLeft - bar.clientWidth / 2 + act.clientWidth / 2, behavior:"smooth" }); }
+    });
+  }, { rootMargin:"-30% 0px -60% 0px" });
+  $$(".cat-block").forEach(b => spyIO.observe(b));
+}
+let qT;
+$("#search").addEventListener("input", e => { clearTimeout(qT); qT = setTimeout(() => { query = e.target.value; renderMenu(); }, 120); });
+$("#footCats").innerHTML = sections[0].cats.slice(0, 5).map((c,k) => `<li><a href="#cat-sushi-${k}">${esc(c.n)}</a></li>`).join("");
+
+/* ---------- zones ---------- */
+$("#zones").innerHTML = `<div class="zone-row"><span>Зона</span><span>Мінімум</span><span>Доставка</span></div>` + zones.map(z => {
+  const t = [...z.tiers].sort((a,b) => a[0] - b[0]), free = t.find(x => x[1] === 0);
+  const cost = t[0][1] === 0 ? `<span class="free">безкоштовно</span>` : `${fmt(t[0][1])} ₴${free ? `<br><small class="muted">0 ₴ від ${fmt(free[0])} ₴</small>` : ""}`;
+  return `<div class="zone-row"><b>${esc(z.n)}</b><span>${fmt(t[0][0])} ₴</span><span>${cost}</span></div>`;
+}).join("");
+
+/* ---------- header, reveal ---------- */
+const onScroll = () => $("#nav").classList.toggle("scrolled", scrollY > 8);
+addEventListener("scroll", onScroll, { passive:true });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold:.12 });
+$$(".reveal").forEach(el => io.observe(el));
 
 $("#year").textContent = new Date().getFullYear();
-renderMenu(); renderCart(); onScroll();
+renderSeg(); renderMenu(); renderCart(); onScroll();
 </script>
 </body>
 </html>
