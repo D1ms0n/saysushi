@@ -11,7 +11,7 @@
 <meta property="og:image" content="img/hero/set-xl.webp">
 <link rel="icon" type="image/png" href="img/logo.png">
 <link rel="apple-touch-icon" href="img/logo.png">
-<link rel="preload" href="img/hero/set-xl.webp" as="image" fetchpriority="high">
+<link rel="preload" href="img/hero/smash.webp" as="image" fetchpriority="high">
 <link rel="preload" href="fonts/unbounded-800-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
@@ -120,41 +120,57 @@ header.nav.scrolled{border-bottom-color:var(--line)}
 .phone-link{display:none;font-weight:600;padding:0 6px}
 @media (min-width:1000px){.nav-links{display:flex}.nav-actions{margin-left:12px}.phone-link{display:inline}}
 
-/* ---------- hero ---------- */
-.hero{background:var(--graphite);color:#F7F2EC;overflow:hidden;position:relative}
-.hero-grid{display:grid;align-items:stretch}
-@media (min-width:960px){.hero-grid{grid-template-columns:1fr 1.15fr;min-height:min(640px,calc(100vh - var(--header-h)))}}
-.hero-photo{position:relative;aspect-ratio:4/3.3;overflow:hidden;order:-1;margin:0 -16px}
-@media (min-width:768px) and (max-width:959px){.hero-photo{margin:0 -32px;aspect-ratio:16/9}}
-@media (min-width:960px){.hero-photo{aspect-ratio:auto;order:1;margin:0 calc(50% - 50vw) 0 0}}
-@media (min-width:1240px){.hero-photo{margin-right:calc((1240px - 100vw)/2)}}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.14);object-position:50% 52%;animation:heroIn 1.4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes heroIn{from{transform:scale(1.26);opacity:.4}}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,var(--graphite) 100%)}
-@media (min-width:960px){.hero-photo::after{background:linear-gradient(90deg,var(--graphite) 0,transparent 22%)}}
-.hero-tag{
-  position:absolute;right:14px;bottom:18px;z-index:1;display:flex;align-items:center;gap:12px;
-  background:rgba(22,21,26,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.14);padding:10px 12px 10px 16px;border-radius:18px;font-size:14px;font-weight:600;
-}
-.hero-tag small{display:block;opacity:.7;font-weight:500;font-size:12px}
-@media (max-width:959px){.hero-tag{display:none}}
-.hero-copy{padding:8px 0 40px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
-@media (min-width:960px){.hero-copy{padding:56px 48px 56px 0}}
-.hero h1{font-size:clamp(34px,5.6vw,64px);font-weight:800;margin:0 0 16px}
-.hero h1 em{font-style:normal;color:#FF8752}
-.hero .sub{font-size:clamp(16px,1.5vw,18px);opacity:.78;margin:0 0 24px;max-width:480px}
-.hero-ctas{display:grid;gap:10px}
-@media (min-width:520px){.hero-ctas{display:flex;flex-wrap:wrap}}
-.chips{display:flex;gap:6px;margin-top:20px;overflow-x:auto;scrollbar-width:none}
+/* ---------- hero carousel ---------- */
+.hero{background:#0A0A0B;color:#F7F2EC;position:relative;overflow:hidden;padding:0}
+.car{position:relative}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.car-track::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;isolation:isolate;
+  height:clamp(540px,calc(100svh - var(--header-h) - 70px),760px)}
+.slide-photo{position:absolute;left:0;right:0;top:0;height:74%;z-index:-1;
+  -webkit-mask-image:linear-gradient(180deg,#000 48%,transparent 100%);mask-image:linear-gradient(180deg,#000 48%,transparent 100%)}
+.slide-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.92) contrast(1.2) saturate(1.25);transform:scale(1.16);transition:transform 7s cubic-bezier(.2,.6,.2,1)}
+.slide.active .slide-photo img{transform:scale(1.04)}
+/* light photos: vignette sinks the table and tray into black so only the food stays lit */
+.slide-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 72% at 50% 46%,transparent 28%,rgba(10,10,11,.62) 60%,#0A0A0B 88%)}
+.slide.dark .slide-photo::after{background:radial-gradient(120% 90% at 50% 50%,transparent 45%,rgba(10,10,11,.5) 80%)}
+.slide-copy{position:absolute;left:0;right:0;bottom:0;padding:0 20px 92px}
+.slide-kicker{display:block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFB38C;margin-bottom:10px}
+.slide h2{font-size:clamp(32px,8.6vw,66px);font-weight:800;line-height:1.02;max-width:620px;text-wrap:balance}
+.slide p{margin:12px 0 0;opacity:.75;max-width:460px;font-size:15px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.slide-buy{display:flex;align-items:center;gap:14px;margin-top:18px}
+.slide-price{font-family:Unbounded,sans-serif;font-weight:700;font-size:clamp(24px,5.4vw,34px);color:#FF8752;line-height:1}
+.slide-price small{display:block;font-family:Onest,sans-serif;font-size:12.5px;font-weight:500;color:#F7F2EC;opacity:.6;margin-top:6px}
+.slide .btn-cta{padding:14px 22px}
+.car-ui{position:absolute;left:20px;right:20px;bottom:28px;display:flex;align-items:center;gap:12px;z-index:2;pointer-events:none}
+.car-ui > *{pointer-events:auto}
+.dots{display:flex;gap:6px}
+.dots button{position:relative;width:30px;height:4px;padding:0;border:0;border-radius:2px;background:rgba(255,255,255,.22);overflow:hidden}
+.dots button::before{content:"";position:absolute;inset:-12px 0}
+.dots button i{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.dots button.done i{transform:scaleX(1)}
+.dots button.on i{animation:prog var(--dur,6s) linear forwards}
+.car.paused .dots button.on i{animation-play-state:paused}
+@keyframes prog{to{transform:scaleX(1)}}
+.car-arrows{display:none;gap:8px;margin-left:auto}
+.car-arrows button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;backdrop-filter:blur(8px)}
+.car-arrows button:hover{background:rgba(255,255,255,.14)}
+.car-arrows svg{width:20px;height:20px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);white-space:nowrap}
+.chip{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);white-space:nowrap}
 .chip b{color:#FF8752;font-weight:700}
-.loved{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:13.5px;opacity:.85}
-.loved .faces{display:flex}
-.loved .faces img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--graphite);margin-left:-8px}
-.loved .faces img:first-child{margin-left:0}
-
+.hero-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:4px 0 26px}
+.hero-bar .menu-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#FFB38C;margin-left:auto}
+@media (max-width:600px){.hero-bar .menu-link{display:none}}
+@media (min-width:960px){
+  .slide{height:min(680px,calc(100vh - var(--header-h) - 70px))}
+  .slide-photo{left:30%;height:100%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+  .slide-photo::after{background:radial-gradient(75% 85% at 55% 50%,transparent 30%,rgba(10,10,11,.6) 62%,#0A0A0B 92%)}
+  .slide-copy{top:0;display:flex;flex-direction:column;justify-content:center;padding:0 0 40px max(32px,calc((100vw - 1240px)/2 + 32px));max-width:min(760px,56%)}
+  .car-ui{left:max(32px,calc((100vw - 1240px)/2 + 32px));right:max(32px,calc((100vw - 1240px)/2 + 32px));bottom:36px}
+  .car-arrows{display:flex}
+}
 /* ---------- sections ---------- */
 section{padding:64px 0}
 @media (min-width:960px){section{padding:88px 0}}
@@ -456,26 +472,25 @@ dialog.dish::backdrop{background:rgba(10,9,12,.6);backdrop-filter:blur(4px)}
 <main id="top">
 
 <!-- HERO -->
-<section class="hero" style="padding:0">
-  <div class="wrap hero-grid">
-    <div class="hero-photo">
-      <img src="img/hero/set-xl.webp" alt="Сет XL: Філадельфія, запечені роли, лосось і тунець" width="888" height="666" fetchpriority="high">
-      <div class="hero-tag" id="heroTag"></div>
-    </div>
-    <div class="hero-copy">
-      <h1>Лосось, що <em>тане</em> в&nbsp;роті</h1>
-      <p class="sub">Роли, сети й поке з доставкою по Зазим'ю та околицях. Готуємо щодня з&nbsp;11:00 до&nbsp;22:00.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-cta" id="heroBuy"></button>
-        <a href="#menu" class="btn btn-glass">Все меню <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+<section class="hero" aria-roledescription="carousel" aria-label="Страви SaySushi">
+  <h1 class="sr-only">SaySushi — роли, сети та бургери з доставкою в Зазим'ї</h1>
+  <div class="car" id="car">
+    <div class="car-track" id="carTrack"></div>
+    <div class="car-ui">
+      <div class="dots" id="carDots"></div>
+      <div class="car-arrows">
+        <button type="button" data-car="-1" aria-label="Попередня страва"><svg><use href="#i-left"/></svg></button>
+        <button type="button" data-car="1" aria-label="Наступна страва"><svg><use href="#i-right"/></svg></button>
       </div>
-      <div class="chips">
-        <span class="chip"><b>−10%</b> самовивіз</span>
-        <span class="chip"><b>0 ₴</b> доставка від 900</span>
-        <span class="chip"><b>11–22</b> щодня</span>
-      </div>
-      <div class="loved" id="loved"></div>
     </div>
+  </div>
+  <div class="wrap hero-bar">
+    <div class="chips" style="margin:0">
+      <span class="chip"><b>−10%</b> самовивіз</span>
+      <span class="chip"><b>0 ₴</b> доставка від 900</span>
+      <span class="chip"><b>11–22</b> щодня</span>
+    </div>
+    <a href="#menu" class="menu-link">Все меню <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
@@ -894,15 +909,68 @@ document.addEventListener("keydown", e => {
   if (e.key === "Enter" && e.target.matches && e.target.matches("[data-open]")) openDish(e.target.dataset.open);
 });
 
-/* ---------- hero ---------- */
+/* ---------- hero carousel ---------- */
 (function(){
-  const set = byName("Сет XL");
-  $("#heroBuy").innerHTML = `Замовити цей сет <small>· ${fmt(set.p)} ₴</small>`;
-  $("#heroBuy").onclick = () => { add(set.id); openCart(true); };
-  $("#heroTag").innerHTML = `<span>${esc(set.n)}<small>${esc(set.w)} · ${fmt(set.p)} ₴</small></span><button class="add" data-inc="${set.id}" aria-label="Додати ${esc(set.n)}">+</button>`;
-  const top = [...ITEMS.values()].filter(i => i.f).sort((a,b) => b.f - a.f).slice(0, 3);
-  $("#loved").innerHTML = `<span class="faces">${top.map(i => `<img src="${i.img}" alt="">`).join("")}</span>
-    <span>Улюблене гостей: ${top.map(i => esc(i.n)).join(", ")}</span>`;
+  const SLIDES = [
+    { n:"Say Smash", img:"img/hero/smash.webp", pos:"50% 64%", dark:true, kick:"SayBurger · смеш-бургер" },
+    { n:"Сет XL", img:"img/hero/set-xl.webp", pos:"50% 50%", kick:"Сет на велику компанію" },
+    { n:"Філадельфія мікс лосось/вугор", img:"img/hero/phila.webp", pos:"50% 56%" },
+    { n:"Червоний дракон", img:"img/hero/dragon.webp", pos:"50% 56%" },
+    { n:"Поке Боул з Лососем", img:"img/hero/poke.webp", pos:"50% 50%" },
+  ].map(s => ({ ...s, it: byName(s.n) })).filter(s => s.it);
+  const DUR = 6000, car = $("#car"), track = $("#carTrack"), dots = $("#carDots");
+  track.innerHTML = SLIDES.map((s, k) => {
+    const it = s.it, kick = s.kick || [it.cat, it.f ? `♥ ${it.f} гостей` : ""].filter(Boolean).join(" · ");
+    return `<article class="slide${s.dark ? " dark" : ""}" aria-roledescription="slide" aria-label="${k + 1} з ${SLIDES.length}">
+      <div class="slide-photo"><img src="${s.img}" alt="${esc(it.n)}" style="object-position:${s.pos}" ${k < 2 ? `fetchpriority="${k ? "auto" : "high"}"` : `loading="lazy"`} decoding="async"></div>
+      <div class="slide-copy">
+        <span class="slide-kicker">${esc(kick)}</span>
+        <h2>${esc(it.n)}</h2>
+        ${it.d ? `<p>${esc(it.d)}</p>` : ""}
+        <div class="slide-buy"><span class="slide-price">${fmt(it.p)} ₴<small>${esc(it.w)}</small></span>
+          <button type="button" class="btn btn-cta" data-inc="${it.id}">У кошик</button></div>
+      </div>
+    </article>`;
+  }).join("");
+  dots.innerHTML = SLIDES.map((s, k) => `<button type="button" aria-label="Слайд ${k + 1}: ${esc(s.it.n)}"><i></i></button>`).join("");
+  car.style.setProperty("--dur", DUR + "ms");
+
+  let idx = 0, timer, holdUntil = 0;
+  const slides = $$(".slide", track), dotBtns = $$("button", dots);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function mark(i){
+    idx = i;
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    dotBtns.forEach((d, k) => {
+      d.classList.toggle("done", k < i); d.classList.remove("on");
+      if (k === i){ void d.offsetWidth; d.classList.add("on"); }
+    });
+  }
+  function go(i){
+    i = (i + slides.length) % slides.length;
+    track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? "auto" : "smooth" });
+    mark(i); schedule();
+  }
+  function schedule(){
+    clearTimeout(timer);
+    if (reduce) return;
+    timer = setTimeout(() => {
+      if (Date.now() < holdUntil || car.classList.contains("paused") || document.hidden) return schedule();
+      go(idx + 1);
+    }, DUR);
+  }
+  let st;
+  track.addEventListener("scroll", () => {
+    clearTimeout(st);
+    st = setTimeout(() => { const i = Math.round(track.scrollLeft / track.clientWidth); if (i !== idx){ mark(i); schedule(); } }, 90);
+  }, { passive:true });
+  track.addEventListener("pointerdown", () => { holdUntil = Date.now() + 8000; });
+  car.addEventListener("mouseenter", () => car.classList.add("paused"));
+  car.addEventListener("mouseleave", () => { car.classList.remove("paused"); schedule(); });
+  dotBtns.forEach((d, k) => d.onclick = () => go(k));
+  $$("[data-car]").forEach(b => b.onclick = () => go(idx + +b.dataset.car));
+  addEventListener("resize", () => track.scrollTo({ left: idx * track.clientWidth }));
+  mark(0); schedule();
 })();
 
 /* ---------- hits: photogenic picks first, then by likes ---------- */
